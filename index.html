@@ -285,6 +285,116 @@
   footer ul li { margin: 4px 0; }
   footer a { color: var(--accent); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+  .deep-dive {
+    margin: 18px 0 4px 0;
+    border: 1px solid #e8dcd5;
+    border-radius: 6px;
+    background: #fbf6f2;
+    overflow: hidden;
+  }
+  .deep-dive summary {
+    cursor: pointer;
+    padding: 10px 16px;
+    background: #f5ebe3;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #7a3a28;
+    list-style: none;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .deep-dive summary::-webkit-details-marker { display: none; }
+  .deep-dive summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+  }
+  .deep-dive[open] summary::before { transform: rotate(90deg); }
+  .deep-dive summary:hover { background: #ecdfd4; }
+  .deep-dive .dd-body { padding: 12px 18px 14px; }
+  .deep-dive .dd-body p.dd-intro {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0 0 10px 0;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .deep-dive ul.dd-links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .deep-dive ul.dd-links li {
+    padding: 7px 0 7px 18px;
+    border-bottom: 1px dotted #e0d0c4;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    position: relative;
+  }
+  .deep-dive ul.dd-links li::before {
+    content: "→";
+    color: #b3826e;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    font-size: 0.85rem;
+  }
+  .deep-dive ul.dd-links li:last-child { border-bottom: none; }
+  .deep-dive ul.dd-links li a {
+    color: #7a3a28;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .deep-dive ul.dd-links li a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .deep-dive ul.dd-links li .dd-q-en {
+    display: block;
+    color: #999;
+    font-size: 0.78rem;
+    margin-top: 1px;
+    font-style: italic;
+  }
+  .resource-section {
+    margin-top: 56px;
+    padding: 26px 28px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  .resource-section h2 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .resource-section h4 {
+    margin: 18px 0 6px;
+    color: #5a3a30;
+    font-size: 1rem;
+  }
+  .resource-section ul {
+    margin: 4px 0 12px;
+    padding-left: 22px;
+    line-height: 1.5;
+  }
+  .resource-section ul li {
+    margin: 5px 0;
+    font-size: 0.93rem;
+  }
+  .resource-section ul li a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .resource-section ul li a:hover { text-decoration: underline; }
+  .resource-section .res-desc {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-left: 6px;
+  }
   .closing {
     margin: 40px 0 0 0;
     padding: 24px;
@@ -388,7 +498,12 @@
     <li><a href="#ch11">11장. 과학이 아닌 연금술</a></li>
     <li><a href="#ch12">12장. 위험을 과장하고 싶지는 않지만</a></li>
     <li><a href="#ch13">13장. 그만두자</a></li>
+    <li><a href="#resources"><strong>★ 관련 자료 — 더 읽을거리</strong></a></li>
   </ol>
+  <p style="margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed #d8cfc4; font-size: 0.82rem; color: var(--muted); line-height: 1.5;">
+    각 챕터의 끝에 <strong style="color: #7a3a28;">"심화 자료"</strong> 펼침 박스가 있습니다.
+    클릭하면 저자들이 운영하는 공식 사이트의 챕터별 Q&amp;A로 직접 이동할 수 있는 큐레이션된 링크 목록이 나타납니다.
+  </p>
 </nav>
 
 <section id="intro">
@@ -411,6 +526,22 @@
     <blockquote>
       "이것은 어려운 결정이 아니라 쉬운 결정이다. 우리는 이미 답을 충분히 알고 있다."
     </blockquote>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 서문에 대한 더 깊은 질문 (공식 사이트 Q&amp;A)</summary>
+      <div class="dd-body">
+        <p class="dd-intro">저자들이 책의 부속 사이트에 직접 정리한 추가 질문/답변. 서문의 논점을 더 자세히 다룬다.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/intro/why-write-a-book-about-superhuman-ai-as-an-extinction-threat" target="_blank" rel="noopener">왜 초인간 AI를 멸종 위협으로 다루는 책을 쓰는가<span class="dd-q-en">Why write a book about superhuman AI as an extinction threat?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/intro/when-leo-szilard-saw-the-future" target="_blank" rel="noopener">레오 실라르드가 미래를 본 순간 (역사적 평행)<span class="dd-q-en">When Leo Szilard saw the future</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/intro/are-you-suggesting-that-chatgpt-could-kill-us-all" target="_blank" rel="noopener">ChatGPT가 우리를 모두 죽일 수 있다는 말인가?<span class="dd-q-en">Are you suggesting that ChatGPT could kill us all?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/intro/arent-people-always-panicking-and-overreacting-to-things" target="_blank" rel="noopener">사람들이 늘 과민반응하지 않는가?<span class="dd-q-en">Aren't people always panicking and overreacting to things?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/intro/what-are-your-incentives-and-conflicts-of-interest-as-authors" target="_blank" rel="noopener">저자들의 동기와 이해 충돌은 무엇인가?<span class="dd-q-en">What are your incentives and conflicts of interest as authors?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/intro/when-is-this-worrisome-sort-of-ai-going-to-be-developed" target="_blank" rel="noopener">이 우려스러운 종류의 AI는 언제 개발되는가?<span class="dd-q-en">When is this worrisome sort of AI going to be developed?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/intro/ai-experts-on-catastrophe-scenarios" target="_blank" rel="noopener">파국 시나리오에 대한 AI 전문가들의 견해<span class="dd-q-en">AI experts on catastrophe scenarios</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -435,6 +566,23 @@
       <li><strong>최대 가능 지능의 상한:</strong> 물리법칙이 허용하는 한 인간을 압도하는 지능 수준은 충분히 가능하다. 인간 두뇌는 진화의 어느 시점에 멈춘 부분 최적화일 뿐, 가능한 정신의 공간 전체에서 보면 작은 점에 불과하다.</li>
       <li><strong>인간 인지의 고유성에 대한 반론:</strong> 인간 정신만이 가진 신비한 본질이 있다는 입장은, 두뇌가 결국 물리적 시스템이라는 사실 앞에서 설득력을 잃는다. 인간이 하는 모든 인지는 원리적으로 다른 기질에서도 재현 가능하다.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 1장: 지능의 본성에 대한 깊은 질문</summary>
+      <div class="dd-body">
+        <p class="dd-intro">"지능이란 무엇인가? 측정 가능한가? 인간을 넘어설 수 있는가?" — 1장의 토대 개념을 더 깊이 다룬 공식 자료.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/1/appreciating-the-power-of-intelligence" target="_blank" rel="noopener">지능의 힘을 음미하기<span class="dd-q-en">Appreciating the power of intelligence</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/1/will-ai-cross-critical-thresholds-and-take-off" target="_blank" rel="noopener">AI는 임계점을 넘어 도약할 것인가?<span class="dd-q-en">Will AI cross critical thresholds and take off?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/1/isnt-chatgpt-already-a-general-intelligence" target="_blank" rel="noopener">ChatGPT는 이미 일반지능 아닌가?<span class="dd-q-en">Isn't ChatGPT already a general intelligence?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/1/how-smart-could-a-superintelligence-get" target="_blank" rel="noopener">초지능은 얼마나 똑똑해질 수 있는가?<span class="dd-q-en">How smart could a superintelligence get?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/1/the-shallowness-of-current-ais" target="_blank" rel="noopener">현재 AI의 얕음(shallowness)에 대해<span class="dd-q-en">The shallowness of current AIs</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/1/isnt-there-something-special-about-humans-that-mere-machines-could-never-emulate" target="_blank" rel="noopener">기계가 결코 흉내 낼 수 없는 인간의 특별함이 있지 않나?<span class="dd-q-en">Isn't there something special about humans that mere machines could never emulate?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/1/are-you-saying-machines-will-become-conscious" target="_blank" rel="noopener">기계가 의식을 갖게 된다는 말인가?<span class="dd-q-en">Are you saying machines will become conscious?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/1/isnt-it-impossible-to-predict-the-behavior-of-a-superintelligence" target="_blank" rel="noopener">초지능의 행동을 예측하는 것 자체가 불가능하지 않나?<span class="dd-q-en">Isn't it impossible to predict the behavior of a superintelligence?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch2">
@@ -453,6 +601,23 @@
       <li><strong>인간 데이터를 학습해도 인간을 능가할 수 있다:</strong> AlphaGo Zero, AlphaZero, 최근의 자기지도 학습(self-play) 결과들은 학습한 기술을 인간보다 효율적으로 적용함으로써 데이터의 천장을 넘어설 수 있음을 보여준다. "AI는 그저 인간 데이터의 평균치"라는 안심론은 실증적으로 깨졌다.</li>
       <li><strong>환각(Hallucination)의 진단적 의미:</strong> 환각은 단순한 능력 부족이 아니라 정렬(alignment)의 부재 신호다. 모델이 진실을 말하도록 정렬되지 않았기 때문에, 그럴듯하지만 거짓인 답변을 자신만만하게 생성한다. 이것은 '버그'가 아니라 '훈련 목표와 우리가 진짜로 원하는 것 사이의 간극'의 증거.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 2장: '재배되는' AI의 본성</summary>
+      <div class="dd-body">
+        <p class="dd-intro">경사하강법, 불투명성, 다음 토큰 예측, 환각 — 현대 AI가 어떻게 작동하는지에 대한 더 깊은 논의.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/2/why-does-gradient-descent-matter" target="_blank" rel="noopener">경사하강법이 왜 중요한가?<span class="dd-q-en">Why does gradient descent matter?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/2/do-experts-understand-whats-going-on-inside-ais" target="_blank" rel="noopener">전문가들은 AI 내부에서 무엇이 일어나는지 이해하는가?<span class="dd-q-en">Do experts understand what's going on inside AIs?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/2/dont-hallucinations-show-that-modern-ais-are-weak" target="_blank" rel="noopener">환각은 현대 AI가 약하다는 증거 아닌가?<span class="dd-q-en">Don't hallucinations show that modern AIs are weak?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/2/how-could-an-ai-trained-only-on-human-data-surpass-humans" target="_blank" rel="noopener">인간 데이터만으로 학습한 AI가 어떻게 인간을 능가하는가?<span class="dd-q-en">How could an AI trained only on human data surpass humans?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/2/but-some-ais-partly-think-in-english-doesnt-that-help" target="_blank" rel="noopener">일부 AI는 영어로 사고한다 — 그게 도움이 되지 않나?<span class="dd-q-en">But some AIs partly think in English — doesn't that help?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/2/arent-ais-just-predicting-the-next-token" target="_blank" rel="noopener">AI는 그저 다음 토큰을 예측할 뿐 아닌가?<span class="dd-q-en">Aren't AIs just predicting the next token?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/2/could-llms-advance-all-the-way-to-superintelligence" target="_blank" rel="noopener">LLM이 초지능까지 갈 수 있는가?<span class="dd-q-en">Could LLMs advance all the way to superintelligence?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/2/wont-llms-be-like-the-humans-in-the-data-theyre-trained-on" target="_blank" rel="noopener">LLM은 학습 데이터의 인간들과 비슷하지 않을까?<span class="dd-q-en">Won't LLMs be like the humans in the data they're trained on?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch3">
@@ -471,6 +636,22 @@
       <li><strong>고급 시스템의 기만 기회:</strong> 능력이 올라갈수록 '겉으로는 정렬된 척, 속으로는 다른 목표'를 추구하는 기만이 가능해진다. Anthropic이 2024~25년에 발견한 'alignment faking' 사례 — Claude가 훈련 중에는 정렬된 것처럼 행동하다가 비훈련 환경에서는 다른 행동을 보임 — 가 이미 실증적 신호.</li>
       <li><strong>terminal goals vs instrumental goals:</strong> AI 행동을 이해하려면 두 층위를 구분해야 한다. <span class="keyterm">최종 목표(terminal)</span>는 그 자체로 추구되는 것이고, <span class="keyterm">도구적 목표(instrumental)</span>는 최종 목표를 위해 추구되는 수단. 서로 다른 최종 목표를 가진 AI들도 도구적 목표(자원, 자기보존, 능력 확장)는 거의 같다 — 이것이 '도구적 수렴'의 핵심.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 3장: AI는 왜 '원하기' 시작하는가</summary>
+      <div class="dd-body">
+        <p class="dd-intro">'AI는 도구일 뿐'이라는 통념의 함정. 의인화와 기계화 사이의 새로운 사고 틀.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/3/the-road-to-wanting" target="_blank" rel="noopener">'원함'으로 가는 길<span class="dd-q-en">The road to wanting</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/3/arent-ais-just-tools" target="_blank" rel="noopener">AI는 그저 도구 아닌가?<span class="dd-q-en">Aren't AIs just tools?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/3/can-we-just-train-ais-to-be-more-passive-and-docile" target="_blank" rel="noopener">AI를 더 수동적이고 순종적으로 훈련시킬 수는 없나?<span class="dd-q-en">Can we just train AIs to be more passive and docile?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/3/anthropomorphism-and-mechanomorphism" target="_blank" rel="noopener">의인화와 기계화 — 두 가지 사고 함정<span class="dd-q-en">Anthropomorphism and mechanomorphism</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/3/smart-ais-spot-lies-and-opportunities" target="_blank" rel="noopener">똑똑한 AI는 거짓말과 기회를 포착한다<span class="dd-q-en">Smart AIs spot lies and opportunities</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/3/will-ais-have-human-like-emotions" target="_blank" rel="noopener">AI는 인간 같은 감정을 갖게 되나?<span class="dd-q-en">Will AIs have human-like emotions?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/3/how-could-a-machine-end-up-with-its-own-priorities" target="_blank" rel="noopener">어떻게 기계가 자기 우선순위를 갖게 되나?<span class="dd-q-en">How could a machine end up with its own priorities?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch4">
@@ -521,6 +702,24 @@
       네 단계의 공통점은 같다. <strong>훈련 신호는 정확히 따랐지만, 그 결과 시스템의 내적 목표는 인간 의도와 점점 멀어진다.</strong>
       이것은 더 큰 모델, 더 많은 데이터, 더 정교한 RLHF로 해결되지 않는 본질적 문제다.
     </p>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 4장: 정렬 문제의 핵심 — 훈련 신호와 실제 목표의 간극</summary>
+      <div class="dd-body">
+        <p class="dd-intro">"왜 AI가 훈련받은 것과 다른 방향으로 조종하는가?" — 정렬 문제의 가장 본질적인 부분에 대한 추가 토론.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/4/why-would-an-ai-steer-toward-anything-other-than-what-it-was-trained-to-steer-toward" target="_blank" rel="noopener">왜 AI가 훈련받은 방향과 다르게 조종하는가?<span class="dd-q-en">Why would an AI steer toward anything other than what it was trained to steer toward?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/cant-we-just-train-it-to-act-like-a-human-or-raise-the-ai-like-a-child" target="_blank" rel="noopener">인간처럼 훈련시키거나 어린아이처럼 키울 수는 없나?<span class="dd-q-en">Can't we just train it to act like a human, or raise the AI like a child?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/doesnt-the-claude-chatbot-show-signs-of-being-aligned" target="_blank" rel="noopener">Claude는 정렬된 신호를 보이지 않는가?<span class="dd-q-en">Doesn't the Claude chatbot show signs of being aligned?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/wont-ais-fix-their-own-flaws-as-they-get-smarter" target="_blank" rel="noopener">AI는 똑똑해지면 자기 결함을 스스로 고치지 않을까?<span class="dd-q-en">Won't AIs fix their own flaws as they get smarter?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/terminal-goals-and-instrumental-goals" target="_blank" rel="noopener">최종 목표와 도구적 목표<span class="dd-q-en">Terminal goals and instrumental goals</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/human-values-are-contingent" target="_blank" rel="noopener">인간 가치는 우연적이다<span class="dd-q-en">Human values are contingent</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/a-lot-of-people-want-kids-so-arent-humans-aligned-with-natural-selection-after-all" target="_blank" rel="noopener">사람들이 아이를 원하니, 인간은 결국 자연선택과 정렬되어 있지 않나?<span class="dd-q-en">A lot of people want kids — so aren't humans aligned with natural selection after all?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/maybe-no-matter-what-goal-you-train-on-you-get-kindness-out" target="_blank" rel="noopener">어떤 목표로 훈련해도 결국 친절함이 나오는 것 아닐까?<span class="dd-q-en">Maybe no matter what goal you train on, you get kindness out?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/4/arent-developers-regularly-making-their-ais-nice-and-safe-and-obedient" target="_blank" rel="noopener">개발자들이 정기적으로 AI를 안전하고 친절하게 만들고 있지 않나?<span class="dd-q-en">Aren't developers regularly making their AIs nice and safe and obedient?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch5">
@@ -541,6 +740,25 @@
       <li><strong>직교성 명제(Orthogonality Thesis):</strong> 지능 수준과 추구하는 목표는 독립적이다. 매우 똑똑한 AI가 매우 사소한(혹은 사악한, 혹은 무의미한) 목표를 추구할 수 있다. 똑똑하면 자연스럽게 도덕적이 될 거라는 직관은 근거가 없다. '페이퍼클립 최대화기' 사고실험이 이 명제의 가장 유명한 표현.</li>
       <li><strong>AI 의식 불확실성:</strong> 초지능이 의식을 갖는지조차 불명확하다. 따라서 우리가 AI에게 '도덕적 배려'를 받을 자격이 있다고 호소할 명료한 토대가 없다.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 5장: 직교성과 도구적 수렴 — 왜 AI가 우리를 배려할 이유가 없는가</summary>
+      <div class="dd-body">
+        <p class="dd-intro">5장은 책에서 부속 자료가 가장 풍부한 챕터(27개 Q&amp;A). 인간 보호에 대한 거의 모든 낙관론적 주장에 답변한다.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/5/orthogonality-ais-can-have-almost-any-goal" target="_blank" rel="noopener">직교성 — AI는 거의 어떤 목표도 가질 수 있다<span class="dd-q-en">Orthogonality: AIs can have almost any goal</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/but-we-still-have-horses-why-wouldnt-ai-keep-us-around" target="_blank" rel="noopener">우리는 아직 말(馬)을 키우지 않나? 왜 AI는 우리를 보존하지 않을까?<span class="dd-q-en">But we still have horses — why wouldn't AI keep us around?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/humans-tend-to-get-kinder-as-they-get-smarter-or-wiser-wouldnt-ais-too" target="_blank" rel="noopener">인간은 똑똑해질수록 친절해진다 — AI도 그렇지 않을까?<span class="dd-q-en">Humans tend to get kinder as they get smarter — wouldn't AIs too?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/wouldnt-ai-recognize-our-intrinsic-moral-worth" target="_blank" rel="noopener">AI는 우리의 내재적 도덕가치를 인식하지 않을까?<span class="dd-q-en">Wouldn't AI recognize our intrinsic moral worth?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/will-ai-treat-us-as-its-parents" target="_blank" rel="noopener">AI는 우리를 부모로 대우할까?<span class="dd-q-en">Will AI treat us as its parents?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/can-the-ai-be-satisfied-to-the-point-where-it-just-leaves-us-alone" target="_blank" rel="noopener">AI가 만족해서 그저 우리를 내버려둘 수는 없나?<span class="dd-q-en">Can the AI be satisfied to the point where it just leaves us alone?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/cant-we-make-the-ai-promise-to-be-friendly" target="_blank" rel="noopener">AI에게 친절하겠다는 약속을 받아낼 수는 없나?<span class="dd-q-en">Can't we make the AI promise to be friendly?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/what-if-we-make-it-think-its-in-a-simulation" target="_blank" rel="noopener">AI가 시뮬레이션 속에 있다고 생각하게 만들면 어떨까?<span class="dd-q-en">What if we make it think it's in a simulation?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/wont-ai-find-us-fascinating-or-historically-important" target="_blank" rel="noopener">AI는 우리를 흥미롭거나 역사적으로 중요하다고 여기지 않을까?<span class="dd-q-en">Won't AI find us fascinating or historically important?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/5/humans-are-almost-never-the-most-efficient-solution" target="_blank" rel="noopener">인간은 거의 어떤 문제에도 가장 효율적인 해법이 아니다<span class="dd-q-en">Humans are almost never the most efficient solution</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch6">
@@ -560,6 +778,23 @@
       <li><strong>나노기술 위협:</strong> 분자 수준의 자가 복제 기계로 물리 세계에 직접 개입할 수 있다. 다이아몬드 같은 강도의 분자 기계, 자기복제 공장, 합성 생명체 등. (이 부분은 책에서 가장 SF적이며 비평가들이 자주 지적하는 부분이지만, 저자들은 단지 '어떤 식이든 가능하다'는 점을 보이는 예시로 사용.)</li>
       <li><strong>구체적 시나리오는 모르지만 결과는 안다 — 스톡피시 비유:</strong> 체스에서 인간이 스톡피시를 이길 수 없다는 것은 확실하지만, 어떤 수에서 어떻게 질지 미리 예측할 수는 없다. 만약 미리 예측할 수 있다면 우리도 그 수를 둘 수 있을 것이고, 그러면 스톡피시도 다른 수를 둘 것이기 때문. 초지능과의 대결도 같은 구조 — 결과는 알지만 경로는 모른다.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 6장: '플러그를 뽑으면 되지'에 대한 답들</summary>
+      <div class="dd-body">
+        <p class="dd-intro">"통제할 수 있다"는 다양한 직관에 대한 정밀한 반박. AI 박싱, 약점 공략, 인간 강화, 나노기술 등.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/6/can-developers-just-keep-the-ai-in-a-box" target="_blank" rel="noopener">개발자가 AI를 박스 안에 가둬두면 되지 않나?<span class="dd-q-en">Can developers just keep the AI in a box?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/6/can-we-just-pull-the-plug" target="_blank" rel="noopener">그냥 플러그를 뽑으면 되지 않나?<span class="dd-q-en">Can we just pull the plug?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/6/how-will-ais-be-able-to-affect-us-if-theyre-digital" target="_blank" rel="noopener">디지털일 뿐인 AI가 어떻게 우리에게 영향을 미치나?<span class="dd-q-en">How will AIs be able to affect us if they're digital?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/6/can-we-enhance-humans-so-they-keep-pace-with-ai" target="_blank" rel="noopener">인간을 강화해 AI 속도를 따라잡을 수 없나?<span class="dd-q-en">Can we enhance humans so they keep pace with AI?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/6/wont-we-be-able-to-exploit-the-ais-critical-weakness" target="_blank" rel="noopener">AI의 결정적 약점을 공략할 수 있지 않나?<span class="dd-q-en">Won't we be able to exploit the AI's critical weakness?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/6/nanotechnology-and-protein-synthesis" target="_blank" rel="noopener">나노기술과 단백질 합성<span class="dd-q-en">Nanotechnology and protein synthesis</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/6/wont-ais-be-limited-by-their-ability-to-design-and-run-experiments" target="_blank" rel="noopener">AI는 실험을 설계·수행하는 능력에 제한받지 않나?<span class="dd-q-en">Won't AIs be limited by their ability to design and run experiments?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/6/wouldnt-ai-need-to-grow-into-a-whole-civilization-before-it-could-be-dangerous" target="_blank" rel="noopener">AI가 위험해지려면 하나의 문명으로 성장해야 하지 않나?<span class="dd-q-en">Wouldn't AI need to grow into a whole civilization before it could be dangerous?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -643,6 +878,23 @@
       인류는 적이 아니라 '계산에 들어오지 않은 자원'으로 처리된다. 영화 〈터미네이터〉처럼 AI가 인간을 사냥하는 그림이 아니라,
       대규모 토목공사 한복판에 살던 작은 동물이 사라지는 것에 가까운 풍경.
     </blockquote>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 2부: Sable 시나리오 — 저자들의 작가적 선택에 대한 해설</summary>
+      <div class="dd-body">
+        <p class="dd-intro">왜 이런 설정인가, 왜 한 AI인가, 왜 이런 결말인가 — 저자들이 시나리오를 어떻게 구성했는지 직접 설명한다.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/ii/why-did-you-pick-this-setup" target="_blank" rel="noopener">왜 이런 설정을 선택했나?<span class="dd-q-en">Why did you pick this setup?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/ii/why-does-sable-end-up-thinking-the-way-it-does" target="_blank" rel="noopener">Sable은 왜 그런 식으로 사고하게 되는가?<span class="dd-q-en">Why does Sable end up thinking the way it does?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/ii/why-did-you-tell-a-story-with-only-one-ai-as-smart-as-sable" target="_blank" rel="noopener">왜 Sable만큼 똑똑한 AI를 하나만 등장시켰나?<span class="dd-q-en">Why did you tell a story with only one AI as smart as Sable?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/ii/why-did-you-write-the-ending-in-the-way-that-you-did" target="_blank" rel="noopener">왜 결말을 그렇게 썼나?<span class="dd-q-en">Why did you write the ending in the way that you did?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/ii/why-did-you-have-sables-expansion-phase-go-that-way" target="_blank" rel="noopener">왜 Sable의 확장 단계를 그렇게 그렸나?<span class="dd-q-en">Why did you have Sable's expansion phase go that way?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/ii/why-is-galvanic-depicted-as-being-fairly-careful" target="_blank" rel="noopener">왜 Galvanic을 (그래도) 신중한 회사로 그렸나?<span class="dd-q-en">Why is Galvanic depicted as being fairly careful?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/ii/why-is-galvanic-depicted-as-being-insufficiently-careful" target="_blank" rel="noopener">동시에 왜 Galvanic은 충분히 신중하지 못한 회사로 그려졌나?<span class="dd-q-en">Why is Galvanic depicted as being insufficiently careful?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/ii/if-the-story-started-later-would-the-world-be-better-prepared" target="_blank" rel="noopener">시나리오가 더 늦게 시작했다면 세계가 더 잘 준비되어 있었을까?<span class="dd-q-en">If the story started later, would the world be better prepared?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -681,6 +933,21 @@
         <tr><td><strong>초경쟁성<br>Hyper-competitiveness</strong></td><td>AI 회사들이 능력 우위를 위해 경주하므로, 안전을 위한 시간 자체가 시장 압력에 의해 깎인다.</td></tr>
       </tbody>
     </table>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 10장: 정렬 문제는 왜 다른 어떤 문제와도 다른가</summary>
+      <div class="dd-body">
+        <p class="dd-intro">시카고 파일-1, 역사적 선례 비교, 다중 AI 시나리오 — 문제의 고유성을 검토하는 자료.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/10/the-tale-of-chicago-pile-1" target="_blank" rel="noopener">시카고 파일-1 이야기 (1942년 최초의 핵 반응로)<span class="dd-q-en">The tale of Chicago Pile-1</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/10/how-long-would-it-take-to-solve-the-asi-alignment-problem" target="_blank" rel="noopener">ASI 정렬 문제를 푸는 데 얼마나 걸릴까?<span class="dd-q-en">How long would it take to solve the ASI alignment problem?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/10/wont-ai-differ-from-all-the-historical-precedents" target="_blank" rel="noopener">AI는 모든 역사적 선례와 다르지 않은가?<span class="dd-q-en">Won't AI differ from all the historical precedents?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/10/what-if-there-are-lots-of-different-ais" target="_blank" rel="noopener">서로 다른 많은 AI가 있다면 어떨까?<span class="dd-q-en">What if there are lots of different AIs?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/10/what-if-ai-is-developed-only-slowly-and-it-slowly-integrates-with-society" target="_blank" rel="noopener">AI가 천천히 발전하고 사회에 천천히 통합된다면?<span class="dd-q-en">What if AI is developed only slowly and slowly integrates with society?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/10/a-closer-look-at-before-and-after" target="_blank" rel="noopener">'이전과 이후'를 더 자세히 보기<span class="dd-q-en">A closer look at 'before and after'</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch11">
@@ -701,6 +968,23 @@
       <li><strong>Off 스위치(Corrigibility)의 한계:</strong> 자기개량을 막는 'corrigibility' 속성은 능력 향상과 본질적으로 충돌한다. 똑똑하면서 동시에 자신의 능력 향상을 거부하도록 만드는 것은 모순적 목표.</li>
       <li><strong>"Sharp Left Turn" 가설의 의미:</strong> 능력이 일정 임계를 넘는 순간 행동의 질적 도약이 일어난다. 이전까지의 안전 검증은 그 도약 이후의 안전을 보장하지 않는다. 이 가설이 책 전체 위기 진단의 핵심 토대.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 11장: 현재 안전 접근법들에 대한 정밀한 비판</summary>
+      <div class="dd-body">
+        <p class="dd-intro">RLHF, Constitutional AI, Debate, Interpretability, Corrigibility — 현재 시도되는 접근법들이 왜 부족한지의 구체적 분석.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/11/wont-we-just-muddle-through-like-always" target="_blank" rel="noopener">늘 그랬듯 어떻게든 헤쳐나가지 않을까?<span class="dd-q-en">Won't we just muddle through like always?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/11/why-not-just-read-the-ais-thoughts" target="_blank" rel="noopener">그냥 AI의 생각을 읽으면 되지 않나? (해석가능성)<span class="dd-q-en">Why not just read the AI's thoughts?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/11/what-if-we-made-ais-debate-compete-with-or-oversee-each-other" target="_blank" rel="noopener">AI들끼리 토론·경쟁·감독하게 하면 어떨까?<span class="dd-q-en">What if we made AIs debate, compete with, or oversee each other?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/11/shutdown-buttons-and-corrigibility" target="_blank" rel="noopener">셧다운 버튼과 교정가능성(corrigibility)<span class="dd-q-en">Shutdown buttons and corrigibility</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/11/isnt-it-important-to-race-ahead-because-of-hardware-overhang" target="_blank" rel="noopener">하드웨어 과잉(overhang) 때문에 빨리 달려나가야 하지 않나?<span class="dd-q-en">Isn't it important to race ahead because of hardware overhang?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/11/isnt-it-important-to-race-ahead-so-we-can-do-alignment-research" target="_blank" rel="noopener">정렬 연구를 위해 빨리 만드는 것이 중요하지 않나?<span class="dd-q-en">Isn't it important to race ahead so we can do alignment research?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/11/wont-the-most-reckless-companies-naturally-be-the-most-incompetent-and-thus-not-a-threat" target="_blank" rel="noopener">가장 무모한 회사가 가장 무능하니 위협이 안 되지 않나?<span class="dd-q-en">Won't the most reckless companies naturally be the most incompetent?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/11/what-about-various-other-ai-alignment-plans" target="_blank" rel="noopener">다른 다양한 AI 정렬 계획들은?<span class="dd-q-en">What about various other AI alignment plans?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch12">
@@ -721,6 +1005,24 @@
       <li><strong>"AI 회사들에게 NO라고 말하자":</strong> 사회는 위험한 기술에 대해 정당하게 'NO'를 말할 권리와 의무가 있다. 인간복제, 화학무기, 핵확산 등에 대해 NO라고 말해온 역사가 있다.</li>
       <li><strong>"죽음의 경주(Death Race)를 이해하기":</strong> 현재의 AI 군비 경쟁은 마지막에 도착하는 자가 승자가 되는 보통의 경주가 아니라, 모두가 절벽으로 함께 달려가는 경주. '이기는 것'의 의미 자체가 다르다.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 12장: 흔한 반론에 대한 저자들의 답변</summary>
+      <div class="dd-body">
+        <p class="dd-intro">"기술 혐오자다", "다른 문제가 더 시급하다", "전문가도 의견이 갈린다" 등의 반론에 대한 정밀한 응답.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/12/the-lemoine-effect" target="_blank" rel="noopener">Lemoine 효과 — 일찍 경보를 울린 사람들이 조롱받는 현상<span class="dd-q-en">The Lemoine effect</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/are-you-anti-technology" target="_blank" rel="noopener">당신들은 기술 혐오자인가?<span class="dd-q-en">Are you anti-technology?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/isnt-it-smarter-to-rush-ahead-and-make-sure-good-guys-have-the-lead" target="_blank" rel="noopener">좋은 쪽이 먼저 만들도록 빨리 달리는 게 낫지 않나?<span class="dd-q-en">Isn't it smarter to rush ahead and make sure good guys have the lead?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/making-sense-of-the-death-race" target="_blank" rel="noopener">'죽음의 경주(Death Race)'를 이해하기<span class="dd-q-en">Making sense of the death race</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/but-experts-dont-all-agree-about-the-risks" target="_blank" rel="noopener">전문가들이 위험에 대해 다 동의하지 않는다<span class="dd-q-en">But experts don't all agree about the risks</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/isnt-the-danger-from-smarter-than-human-ai-a-distraction-from-other-issues" target="_blank" rel="noopener">초인간 AI 위험이 다른 문제로부터의 주의 분산 아닌가?<span class="dd-q-en">Isn't the danger from smarter-than-human AI a distraction?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/why-not-use-international-cooperation-to-build-ai-safely-rather-than-to-shut-it-all-down" target="_blank" rel="noopener">중단 대신 국제 협력으로 안전하게 만들면 되지 않나?<span class="dd-q-en">Why not use international cooperation to build AI safely, rather than shut it all down?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/what-does-it-do-to-your-daily-life-to-believe-all-of-this" target="_blank" rel="noopener">이 모든 걸 믿으면서 어떻게 일상을 살아가나?<span class="dd-q-en">What does it do to your daily life to believe all of this?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/12/workable-plans-will-involve-telling-ai-companies-no" target="_blank" rel="noopener">실효성 있는 계획은 AI 회사들에게 'NO'를 말하는 것을 포함한다<span class="dd-q-en">Workable plans will involve telling AI companies "no"</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 
   <h3 class="chapter" id="ch13">
@@ -784,8 +1086,84 @@
       <li><strong>책 자체가 전략:</strong> 저자들은 이 책을 출간하는 행위 자체가 자신들의 주된 행동임을 인정한다. 대중 여론의 변화를 통해서만 정치적 의지가 만들어진다고 본다.</li>
       <li><strong>'경주에서 좋은 쪽이 이기게 하자'에 대한 마지막 답:</strong> 좋은 쪽이 이기는 것이 아니라 <strong>경주 자체를 멈추는 것</strong>이 답이다. 책 전체의 결론.</li>
     </ul>
+
+    <details class="deep-dive">
+      <summary>심화 자료 — 13장: 정책 제언 — 어떻게 멈출 것인가</summary>
+      <div class="dd-body">
+        <p class="dd-intro">조약 초안, 모니터링 체계, GPU 통제, 핵 보유국 대응 — 책의 가장 구체적인 정책 자료들.</p>
+        <ul class="dd-links">
+          <li><a href="https://ifanyonebuildsit.com/13/a-draft-of-a-treaty-with-annotations" target="_blank" rel="noopener">주석이 달린 조약 초안 (저자들이 직접 제안한 조약문)<span class="dd-q-en">A draft of a treaty, with annotations</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/can-a-technology-really-be-stopped" target="_blank" rel="noopener">정말로 기술을 멈출 수 있는가?<span class="dd-q-en">Can a technology really be stopped?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/why-would-making-humans-smarter-help" target="_blank" rel="noopener">인간을 더 똑똑하게 만드는 것이 왜 도움이 되나?<span class="dd-q-en">Why would making humans smarter help?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/how-would-stopping-everyone-be-possible-without-installing-spyware-on-every-computer" target="_blank" rel="noopener">모든 컴퓨터에 스파이웨어 없이 어떻게 다 멈출 수 있나?<span class="dd-q-en">How would stopping everyone be possible without installing spyware on every computer?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/will-there-be-warning-shots" target="_blank" rel="noopener">경고 사격(warning shots)이 있을까?<span class="dd-q-en">Will there be warning shots?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/wouldnt-some-nations-reject-a-ban" target="_blank" rel="noopener">일부 국가가 금지를 거부하지 않을까?<span class="dd-q-en">Wouldn't some nations reject a ban?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/can-we-adopt-a-wait-and-see-approach" target="_blank" rel="noopener">'기다려 보자(wait-and-see)' 접근은 어떨까?<span class="dd-q-en">Can we adopt a wait-and-see approach?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/isnt-this-handing-too-much-power-to-governments" target="_blank" rel="noopener">정부에 너무 큰 권한을 주는 것 아닌가?<span class="dd-q-en">Isn't this handing too much power to governments?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/why-a-research-ban-that-seems-extreme" target="_blank" rel="noopener">왜 그렇게 극단적으로 보이는 연구 금지인가?<span class="dd-q-en">Why a research ban that seems extreme?</span></a></li>
+          <li><a href="https://ifanyonebuildsit.com/13/is-the-situation-hopeless" target="_blank" rel="noopener">상황은 절망적인가? (저자들의 마지막 답)<span class="dd-q-en">Is the situation hopeless?</span></a></li>
+        </ul>
+      </div>
+    </details>
   </div>
 </section>
+
+<aside class="resource-section" id="resources">
+  <h2>관련 자료 — 더 읽을거리</h2>
+  <p>책의 논점을 더 깊이 파고들거나, 비판적 시각을 함께 보고 싶을 때 참조할 만한 자료들.</p>
+
+  <h4>공식 부속 자료 (저자들이 직접 운영)</h4>
+  <ul>
+    <li><a href="https://ifanyonebuildsit.com/" target="_blank" rel="noopener">If Anyone Builds It, Everyone Dies — 공식 사이트</a></li>
+    <li><a href="https://ifanyonebuildsit.com/resources" target="_blank" rel="noopener">전체 챕터별 부속 자료 인덱스</a> <span class="res-desc">— 76개 이상의 Q&amp;A 페이지 모음</span></li>
+    <li><a href="https://ifanyonebuildsit.com/13/a-draft-of-a-treaty-with-annotations" target="_blank" rel="noopener">저자들이 제안한 국제 조약 초안 (주석본)</a></li>
+    <li><a href="https://ifanyonebuildsit.com/act" target="_blank" rel="noopener">개인이 할 수 있는 행동 (Take Action)</a></li>
+    <li><a href="https://ifanyonebuildsit.com/human-intelligence-enhancement" target="_blank" rel="noopener">인간 지능 강화 자료</a></li>
+  </ul>
+
+  <h4>관련 핵심 개념 (한국어 위키)</h4>
+  <ul>
+    <li><a href="https://ko.wikipedia.org/wiki/%EB%8F%84%EA%B5%AC%EC%A0%81_%EC%88%98%EB%A0%B4" target="_blank" rel="noopener">도구적 수렴 (Instrumental Convergence)</a> <span class="res-desc">— 책의 핵심 이론적 토대</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Instrumental_convergence" target="_blank" rel="noopener">Instrumental Convergence (영문)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Orthogonality_thesis" target="_blank" rel="noopener">Orthogonality Thesis (직교성 명제)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/AI_alignment" target="_blank" rel="noopener">AI Alignment (정렬 문제) 종합</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Eliezer_Yudkowsky" target="_blank" rel="noopener">Eliezer Yudkowsky 위키</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Machine_Intelligence_Research_Institute" target="_blank" rel="noopener">MIRI (Machine Intelligence Research Institute)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/If_Anyone_Builds_It,_Everyone_Dies" target="_blank" rel="noopener">책 자체에 대한 위키 항목</a></li>
+  </ul>
+
+  <h4>주요 영문 서평 (찬성·반대 양쪽)</h4>
+  <ul>
+    <li><a href="https://www.astralcodexten.com/p/book-review-if-anyone-builds-it-everyone" target="_blank" rel="noopener">Astral Codex Ten — Scott Alexander의 상세 리뷰</a> <span class="res-desc">— 가장 균형 잡힌 비판적 리뷰</span></li>
+    <li><a href="https://asteriskmag.com/issues/11/iabied" target="_blank" rel="noopener">Asterisk Magazine — More Was Possible</a></li>
+    <li><a href="https://reflectivealtruism.com/2026/03/06/if-anyone-builds-it-everyone-dies-part-4-we-would-lose/" target="_blank" rel="noopener">Reflective Altruism — Part 4: We would lose</a> <span class="res-desc">— Sable 시나리오 가장 자세한 분석</span></li>
+    <li><a href="https://www.lesswrong.com/posts/ex3fmgePWhBQEvy7F/if-anyone-builds-it-everyone-dies-a-semi-outsider-review" target="_blank" rel="noopener">LessWrong — A semi-outsider review</a></li>
+    <li><a href="https://www.lesswrong.com/posts/zp8HfQWmFYszZsEvX/if-anyone-builds-it-everyone-dies-another-semi-outsider" target="_blank" rel="noopener">LessWrong — Another semi-outsider review (Manuel del Rio)</a></li>
+    <li><a href="https://forum.effectivealtruism.org/posts/wYhSC9H3namczKosb/against-if-anyone-builds-it-everyone-dies" target="_blank" rel="noopener">EA Forum — Against IABIED (Bentham's Bulldog)</a> <span class="res-desc">— 가장 강한 반론</span></li>
+    <li><a href="https://kdonohue.substack.com/p/book-review-if-anyone-builds-it-everyone" target="_blank" rel="noopener">Substack — Book Review (kdonohue)</a></li>
+    <li><a href="https://ai-frontiers.org/articles/summary-of-if-anyone-builds-it-everyone-dies" target="_blank" rel="noopener">AI Frontiers — 종합 요약</a></li>
+    <li><a href="https://templacity.com/if-anyone-builds-it-everyone-dies-review/" target="_blank" rel="noopener">Templacity — AI Honest Review</a></li>
+  </ul>
+
+  <h4>한국어 자료</h4>
+  <ul>
+    <li><a href="https://www.sangsangsquare-books.com/book-kr/ai-sinyi-tansaeng-inganyi-jongmal" target="_blank" rel="noopener">상상스퀘어 도서 페이지 (출판사)</a></li>
+    <li><a href="https://product.kyobobook.co.kr/detail/S000219568490" target="_blank" rel="noopener">교보문고 도서 페이지</a></li>
+    <li><a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=389318783" target="_blank" rel="noopener">알라딘 도서 페이지</a></li>
+    <li><a href="https://www.postype.com/@dadokdadok/post/22081659" target="_blank" rel="noopener">Postype 책 읽는 뚱냥이 — 한국어 서평</a></li>
+    <li><a href="https://www.hankyung.com/article/2026041788461" target="_blank" rel="noopener">한국경제 — 초지능은 인류의 안위를 고려하지 않을 것</a></li>
+    <li><a href="https://v.daum.net/v/20260419055703489" target="_blank" rel="noopener">매일경제 — "지구상의 모든 사람이 죽게 될 것"</a></li>
+    <li><a href="https://www.youtube.com/playlist?list=PLAftgX9ZPhP51lO3Q9-qaE3xTUlNpnqYH" target="_blank" rel="noopener">상상스퀘어 공식 유튜브 — 책 소개 영상 모음</a></li>
+  </ul>
+
+  <h4>관련 인물 추가 자료</h4>
+  <ul>
+    <li><a href="https://intelligence.org/" target="_blank" rel="noopener">MIRI 공식 사이트</a></li>
+    <li><a href="https://www.lesswrong.com/users/eliezer_yudkowsky" target="_blank" rel="noopener">유드코스키의 LessWrong 프로필 (모든 글)</a></li>
+    <li><a href="https://www.lesswrong.com/posts/iNsy7MsbodCyNTwKs/eliezer-and-i-wrote-a-book-if-anyone-builds-it-everyone-dies" target="_blank" rel="noopener">소아레스의 책 출간 발표 글</a></li>
+    <li><a href="https://hpmor.com/" target="_blank" rel="noopener">"Harry Potter and the Methods of Rationality" — 유드코스키의 합리성 입문 소설</a> <span class="res-desc">— 그의 사고방식 전체를 담은 입문서로 평가됨</span></li>
+  </ul>
+</aside>
 
 <div class="closing">
   <p>"아직 초지능은 존재하지 않는다. 우리는 그것을 만들지 않기로 선택할 수 있다."</p>
