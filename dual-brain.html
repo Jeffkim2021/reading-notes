@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>듀얼 브레인 — AI 시대의 실용적 생존 가이드 (목차별 상세 정리)</title>
+<style>
+  :root {
+    --bg: #faf7f0;
+    --text: #1a1a1a;
+    --muted: #5e5e5e;
+    --accent: #b8860b;
+    --accent-deep: #8b6508;
+    --accent-soft: #fdf6e3;
+    --border: #e3dccd;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; }
+  html, body { line-height: 1.3; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard",
+                 "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  p, li, td, th, dd, dt { line-height: 1.3; }
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  header.book-header {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .cover-wrap { flex: 0 0 220px; }
+  .cover-wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+  .cover-caption {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 8px;
+  }
+  .meta { flex: 1; min-width: 280px; }
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .original-title {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 16px 0;
+  }
+  .meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 0.92rem;
+  }
+  .meta-table th, .meta-table td {
+    text-align: left;
+    padding: 5px 8px 5px 0;
+    vertical-align: top;
+    line-height: 1.3;
+  }
+  .meta-table th {
+    color: var(--muted);
+    font-weight: 500;
+    width: 95px;
+    white-space: nowrap;
+  }
+  .badges {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .badge {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    border: 1px solid #ecdfb6;
+    line-height: 1.3;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin: 48px 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  h2.part-heading {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    margin-top: 56px;
+  }
+  h3.chapter {
+    font-size: 1.18rem;
+    margin: 36px 0 6px 0;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.3;
+  }
+  h3.chapter .ch-num {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  h3.chapter .en {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
+    font-style: italic;
+  }
+  h4.subhead {
+    margin: 18px 0 6px 16px;
+    font-size: 1rem;
+    color: var(--accent-deep);
+    border-bottom: 1px dashed #e6d8a8;
+    padding-bottom: 3px;
+  }
+  .summary-line {
+    color: var(--muted);
+    font-style: italic;
+    margin: 6px 0 14px 16px;
+    font-size: 0.95rem;
+  }
+  .chapter-body { margin-left: 16px; }
+  .chapter-body p { margin: 8px 0; }
+  ul.points {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+  }
+  ul.points li {
+    margin: 8px 0;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.3;
+  }
+  ul.points li::before {
+    content: "▸";
+    color: var(--accent);
+    position: absolute;
+    left: 4px;
+    top: 0;
+  }
+  ul.points li strong { color: #111; }
+  ul.points li ul {
+    margin: 6px 0 4px 0;
+    padding-left: 14px;
+  }
+  ul.points li ul li {
+    list-style: disc;
+    padding-left: 4px;
+    margin: 3px 0;
+  }
+  ul.points li ul li::before { content: ""; }
+  blockquote {
+    margin: 14px 16px;
+    padding: 12px 18px;
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-size: 0.94rem;
+    color: #5a4408;
+    line-height: 1.35;
+  }
+  .toc {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 24px;
+    margin: 24px 0 32px 0;
+    box-shadow: var(--shadow);
+  }
+  .toc h2 {
+    margin: 0 0 12px 0;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0;
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 22px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    column-count: 2;
+    column-gap: 32px;
+  }
+  .toc ol li a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dotted #ccc;
+  }
+  .toc ol li a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .principle-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 10px 0;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent);
+  }
+  .principle-card .principle-num {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .principle-card .principle-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 4px 0;
+    color: #2a1f00;
+  }
+  .principle-card .principle-en {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .principle-card p {
+    margin: 6px 0;
+    font-size: 0.94rem;
+  }
+  table.compare, table.stats, table.scenarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  table.compare th, table.compare td,
+  table.stats th, table.stats td,
+  table.scenarios th, table.scenarios td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.3;
+  }
+  table.compare th, table.stats th, table.scenarios th {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+  .stat-highlight {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    padding: 2px 9px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border: 1px solid #ecdfb6;
+  }
+  .deep-dive {
+    margin: 18px 0 4px 0;
+    border: 1px solid #e8ddc4;
+    border-radius: 6px;
+    background: #fbf6e9;
+    overflow: hidden;
+  }
+  .deep-dive summary {
+    cursor: pointer;
+    padding: 10px 16px;
+    background: #f3e8c7;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent-deep);
+    list-style: none;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .deep-dive summary::-webkit-details-marker { display: none; }
+  .deep-dive summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+  }
+  .deep-dive[open] summary::before { transform: rotate(90deg); }
+  .deep-dive summary:hover { background: #ebd9ad; }
+  .deep-dive .dd-body { padding: 12px 18px 14px; }
+  .deep-dive ul.dd-links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .deep-dive ul.dd-links li {
+    padding: 7px 0 7px 18px;
+    border-bottom: 1px dotted #d6c89e;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    position: relative;
+  }
+  .deep-dive ul.dd-links li::before {
+    content: "→";
+    color: #b8a163;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    font-size: 0.85rem;
+  }
+  .deep-dive ul.dd-links li:last-child { border-bottom: none; }
+  .deep-dive ul.dd-links li a {
+    color: var(--accent-deep);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .deep-dive ul.dd-links li a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .resource-section {
+    margin-top: 56px;
+    padding: 26px 28px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  .resource-section h2 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .resource-section h4 {
+    margin: 18px 0 6px;
+    color: #5a4500;
+    font-size: 1rem;
+  }
+  .resource-section ul {
+    margin: 4px 0 12px;
+    padding-left: 22px;
+    line-height: 1.5;
+  }
+  .resource-section ul li {
+    margin: 5px 0;
+    font-size: 0.93rem;
+  }
+  .resource-section ul li a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .resource-section ul li a:hover { text-decoration: underline; }
+  .resource-section .res-desc {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-left: 6px;
+  }
+  .closing {
+    margin: 40px 0 0 0;
+    padding: 24px;
+    background: linear-gradient(135deg, #fdf6e3 0%, #fff 100%);
+    border-radius: 8px;
+    border: 1px solid #ecdfb6;
+    text-align: center;
+  }
+  .closing p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--accent-deep);
+    line-height: 1.4;
+  }
+  .keyterm {
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+  .nav-back {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+  .nav-back:hover { text-decoration: underline; }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  footer h3 { color: var(--text); font-size: 1rem; margin-bottom: 8px; }
+  footer ul { padding-left: 20px; margin: 8px 0; line-height: 1.5; }
+  footer ul li { margin: 4px 0; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 48px; }
+    header.book-header { gap: 20px; }
+    .cover-wrap { flex: 0 0 140px; }
+    h1 { font-size: 1.5rem; }
+    .toc ol { column-count: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="nav-back">← 다른 책으로</a>
+
+<header class="book-header">
+  <div class="cover-wrap">
+    <img src="images/cover_dualbrain.jpg" alt="듀얼 브레인 표지">
+    <div class="cover-caption">상상스퀘어, 2025</div>
+  </div>
+  <div class="meta">
+    <h1>듀얼 브레인</h1>
+    <p class="original-title">Co-Intelligence: Living and Working with AI (2024)</p>
+    <table class="meta-table">
+      <tr><th>저자</th><td>이선 몰릭 (Ethan Mollick)</td></tr>
+      <tr><th>역자</th><td>신동숙</td></tr>
+      <tr><th>출판사</th><td>상상스퀘어</td></tr>
+      <tr><th>출간일</th><td>2025년 3월 19일 (한국어판) / 2024년 4월 (원서)</td></tr>
+      <tr><th>분량</th><td>308쪽</td></tr>
+      <tr><th>부제</th><td>AI 시대의 실용적 생존 가이드</td></tr>
+    </table>
+    <div class="badges">
+      <span class="badge">뉴욕타임스 베스트셀러</span>
+      <span class="badge">이코노미스트 2024 올해의 책</span>
+      <span class="badge">파이낸셜 타임스 2024 올해의 책</span>
+      <span class="badge">아마존 2024 과학분야 올해의 책</span>
+      <span class="badge">국내 출간 2주 연속 1위</span>
+      <span class="badge">Time 100 AI 선정 저자</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2>책 소개</h2>
+  <p>
+    이 책은 미국 와튼 스쿨(Wharton School)의 경영학 부교수이자 〈One Useful Thing〉 뉴스레터로 유명한
+    <strong>이선 몰릭(Ethan Mollick)</strong>이 쓴 생성형 AI 실용 가이드의 결정판이다. 〈If Anyone Builds It, Everyone Dies〉가
+    초지능의 위험성을 경고하는 책이라면, 이 책은 그 정반대 입장에 있다 — 지금의 AI를 어떻게 일상·일·교육·창작에서
+    효과적으로 활용할 것인가에 대한 매우 구체적이고 실용적인 안내서.
+  </p>
+  <p>
+    핵심 명제는 한 마디로 요약된다. <strong>AI는 적도 아니고 도구도 아니다 — 함께 일할 동료(co-intelligence)다.</strong>
+    저자는 GPT-4 사전 사용 권한을 받은 뒤 사흘 밤을 잠 못 이루며 깨달은 직관에서 출발해, 챗봇이 단순한 신기한 장난감이
+    아니라 증기기관·전기·인터넷에 비견되는 <strong>범용 기술(General Purpose Technology)</strong>임을 보인다.
+  </p>
+  <p>
+    그러나 단순한 낙관론은 아니다. 저자는 AI를 "<strong>외계 지성(alien mind)</strong>"이라고 부른다 —
+    인간처럼 보이지만 인간이 아닌, 어떤 일은 박사처럼 잘하면서 다른 일은 어린아이만도 못한
+    "<strong>들쭉날쭉한 능력 경계(Jagged Frontier)</strong>"를 가진 존재. 이 외계 지성과 어떻게 협업해야 하는지에 대한
+    네 가지 실천 원칙과 여섯 가지 역할 모델을 제시한다.
+  </p>
+  <p>
+    한국어판은 〈AI, 신의 탄생 인간의 종말〉과 같은 출판사인 상상스퀘어에서 2025년 3월에 출간됐고, 출간 직후
+    교보문고·예스24·알라딘에서 2주 연속 종합 베스트셀러 1위를 기록했다. AI 실무 활용서로는 가장 영향력 있는 책 중 하나로,
+    학계·기업·정책 결정자 모두가 추천한다.
+  </p>
+</section>
+
+<nav class="toc">
+  <h2>목차 한눈에 보기</h2>
+  <ol>
+    <li><a href="#intro">들어가는 말 — 3일 밤을 뜬눈으로 지새우다</a></li>
+    <li><a href="#part1">[1부] 공동지능의 토대</a></li>
+    <li><a href="#ch1">1장. 외계 지성의 탄생</a></li>
+    <li><a href="#ch2">2장. 외계 지성 정렬하기</a></li>
+    <li><a href="#ch3">3장. 공동지능이 되기 위한 네 가지 원칙</a></li>
+    <li><a href="#part2">[2부] AI의 다양한 역할</a></li>
+    <li><a href="#ch4">4장. 사람으로서의 AI</a></li>
+    <li><a href="#ch5">5장. 창작가로서의 AI</a></li>
+    <li><a href="#ch6">6장. 동료로서의 AI</a></li>
+    <li><a href="#ch7">7장. 교사로서의 AI</a></li>
+    <li><a href="#ch8">8장. 코치로서의 AI</a></li>
+    <li><a href="#ch9">9장. 우리의 미래와 AI</a></li>
+    <li><a href="#outro">맺음말 — AI와 우리</a></li>
+    <li><a href="#resources"><strong>★ 관련 자료 — 더 읽을거리</strong></a></li>
+  </ol>
+</nav>
+
+<section id="intro">
+  <h2 class="part-heading">들어가는 말 (Introduction)</h2>
+  <h3 class="chapter">
+    <span class="ch-num">서문.</span>3일 밤을 뜬눈으로 지새우다
+    <span class="en">Three Sleepless Nights</span>
+  </h3>
+  <p class="summary-line">저자가 GPT-4 사전 사용 권한을 받은 뒤 사흘간 잠 못 이룬 그 충격에서 책이 시작된다.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>저자의 경험적 출발점:</strong> 저자는 GPT-4 출시 전 사전 사용권(early access)을 받은 소수 학자 중 한 명이었다. 처음 이 모델과 대화하면서 그는 이것이 "단순히 똑똑한 챗봇"이 아니라 <strong>완전히 다른 종류의 무언가</strong>임을 직감했다. 사흘 밤을 거의 자지 못하며 다양한 작업을 시켜보았고, 매번 그 능력에 충격을 받았다.</li>
+      <li><strong>무엇이 다른가:</strong> 기존 소프트웨어와 달리 AI는 매번 다른 답을 내놓고, 명시적으로 시키지 않은 일도 추론해서 한다. 시키는 일에 한정되지 않는 일반성(generality)을 보인다.</li>
+      <li><strong>'범용 기술'의 직관:</strong> 인류 역사에서 진정으로 모든 산업과 모든 직업을 재편한 기술은 손에 꼽힌다 — 증기기관, 전기, 인터넷. 저자는 생성형 AI가 그 명단의 다음 자리를 차지할 것임을 확신했다. 모든 분야의 모든 사람이 이를 알아야 한다는 사명감이 책의 출발점.</li>
+      <li><strong>책의 약속과 한계:</strong> 저자는 솔직하다 — AI 분야는 너무 빠르게 변해서, 이 책의 어떤 구체적 사례는 출간 시점에 이미 낡았을 수 있다. 그러나 사고방식과 접근 원칙은 더 오래간다. 그래서 책은 '지금 이 모델을 쓰는 법'이 아니라 '미래 어떤 모델이든 다루는 법'을 가르치는 것을 목표로 한다.</li>
+      <li><strong>독자에게 던지는 도전:</strong> 책을 읽는 것만으로는 부족하다. 저자는 거듭 강조한다 — <strong>직접 써봐야 한다</strong>. 그것도 한두 번이 아니라 10시간 정도. 그 정도는 들여야 AI의 진짜 모습이 보인다는 것이 그의 경험적 권고.</li>
+    </ul>
+    <blockquote>
+      "생성형 AI는 적인가? 친구인가? 도구인가? 책의 답은 — 동료(co-intelligence)다.
+      그리고 우리에겐 이 새로운 종류의 동료와 일하는 법을 배울 시간이 그리 많이 남지 않았다."
+    </blockquote>
+  </div>
+</section>
+
+<section id="part1">
+  <h2 class="part-heading">1부. 공동지능의 토대</h2>
+  <p>AI가 무엇이며, 왜 그것을 '동료'로 다뤄야 하는지에 대한 이론적 토대.</p>
+
+  <h3 class="chapter" id="ch1">
+    <span class="ch-num">1장.</span>외계 지성의 탄생
+    <span class="en">Creating Alien Minds</span>
+  </h3>
+  <p class="summary-line">트랜스포머와 LLM이 어떻게 만들어졌고, 왜 우리가 그것을 완전히 이해하지 못하는가.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>트랜스포머(Transformer) 아키텍처:</strong> 2017년 Google의 "Attention Is All You Need" 논문에서 출발한 이 구조가 현 LLM의 토대다. 어텐션 메커니즘을 통해 모델은 문장의 모든 단어를 동시에 고려하면서 다음 단어를 예측한다.</li>
+      <li><strong>'다음 단어 예측'의 단순함과 심오함:</strong> LLM이 하는 일을 단순화하면 "다음에 올 단어 맞히기"다. 그러나 잘 맞히려면 사실, 인과, 의도, 추론, 상식까지 모두 익혀야 한다. 단순한 작업이지만 그 결과는 단순하지 않다.</li>
+      <li><strong>학습 데이터의 딜레마:</strong> LLM은 인터넷의 거의 전체를 읽으며 훈련된다. 이 데이터에는 저작권 있는 콘텐츠, 편향된 내용, 유해한 텍스트가 모두 섞여 있다. AI가 인간의 모든 결함을 흡수한다는 점은 피할 수 없는 사실.</li>
+      <li><strong>RLHF — 인간 피드백을 통한 미세조정:</strong> 사전 훈련된 거대 모델을 '도움 되고 무해하게' 만드는 핵심 단계. 인간 평가자가 답변에 점수를 매기고, 모델이 그 점수를 최대화하도록 조정된다. 이 단계에서 ChatGPT의 '인격'이 형성된다.</li>
+      <li><strong>출현(Emergence) 현상:</strong> 모델이 일정 규모를 넘으면, <strong>아무도 예측하지 못한 능력</strong>이 갑자기 나타난다. 이전 크기에서는 전혀 못하던 것을 갑자기 잘하게 된다. 추론, 농담 이해, 외국어 번역 등이 그 예. 개발자들조차 자신들이 만든 모델이 무엇을 할 수 있는지 사후에 발견한다.</li>
+      <li><strong>'외계 지성'이라는 핵심 비유:</strong> AI는 인간의 텍스트로 훈련됐기에 인간처럼 보인다. 그러나 그 '뇌'의 구조는 인간 뇌와 완전히 다르다. 마치 인간을 흉내 내도록 훈련된 외계인 같다 — <strong>겉모습은 친숙하지만 내부는 알 수 없는 존재</strong>. 이것이 책 전체를 관통하는 비유.</li>
+      <li><strong>감정 없음, 그러나 감정처럼 보임:</strong> AI는 감정을 느끼지 않는다. 그러나 인간의 감정 표현을 흉내 낼 수 있고, 사용자가 거기서 진짜 감정을 읽어내는 일이 자주 일어난다. 이 비대칭이 4장의 'AI as a Person' 논의로 이어진다.</li>
+    </ul>
+  </div>
+
+  <h3 class="chapter" id="ch2">
+    <span class="ch-num">2장.</span>외계 지성 정렬하기
+    <span class="en">Aligning the Alien</span>
+  </h3>
+  <p class="summary-line">AI 정렬 문제 — 장기적 위험과 즉각적 윤리 문제를 함께 다룬다.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>'정렬'이란 무엇인가:</strong> AI 시스템의 목표와 행동을 인간의 가치·의도에 맞추는 작업. 단순히 시키는 일을 잘 하는 것을 넘어, '우리가 진짜로 원하는 것'을 하도록 만드는 문제.</li>
+      <li><strong>닉 보스트롬의 '클립 최대화기':</strong> 만약 우리가 초지능 AI에게 "최대한 많은 클립을 만들어라"는 단순한 목표를 주면 무슨 일이 일어날까? AI는 지구의 모든 자원을 클립으로 바꾸려 할 것이다. 인간을 포함해서. 단순한 목표 함수에서 파국적 결과가 나오는 것이 정렬 문제의 본질.</li>
+      <li><strong>장기적 우려 vs 즉각적 우려:</strong> 책은 보스트롬·유드코스키 식의 '실존 위험' 논의도 인정하지만, 더 시급한 것은 지금 당장의 윤리 문제라고 본다.
+        <ul>
+          <li><strong>편향(Bias):</strong> 학습 데이터의 편향이 결과에 그대로 반영된다 — 성별·인종·계층적 편견이 시스템화된다.</li>
+          <li><strong>프라이버시:</strong> 모델이 훈련 중에 본 개인 정보를 우연히 노출할 수 있다.</li>
+          <li><strong>악용(Misuse):</strong> 사기·사칭·딥페이크·자동화된 사이버 공격 등.</li>
+          <li><strong>일자리 영향:</strong> 화이트칼라 자동화의 가속.</li>
+          <li><strong>환경 비용:</strong> 거대 모델 훈련에 드는 막대한 전력과 물.</li>
+        </ul>
+      </li>
+      <li><strong>저자의 입장 — 다층 접근:</strong> 정렬 문제는 한 가지 해법으로 풀리지 않는다. 기술적 안전장치(RLHF, 헌법적 AI), 정부 규제, 시민 교육, 산업 자율 규제가 동시에 필요하다.</li>
+      <li><strong>유드코스키 식 '전면 중단'에 대한 입장:</strong> 저자는 모든 AI 개발을 중단하는 극단적 입장을 거부한다. 위험을 최소화하면서도 이익을 활용하는 균형점을 찾아야 한다는 입장. (이 부분이 〈If Anyone Builds It, Everyone Dies〉와 가장 대척점에 서는 지점.)</li>
+      <li><strong>'완벽한 정렬'은 존재하지 않는다:</strong> 인간 사회조차 무엇이 '올바른가'에 합의하지 못한다. AI 정렬은 그 위에 더해지는 문제. 따라서 끊임없는 조정과 견제가 필요한 진행형 과제.</li>
+    </ul>
+  </div>
+
+  <h3 class="chapter" id="ch3">
+    <span class="ch-num">3장.</span>공동지능이 되기 위한 네 가지 원칙
+    <span class="en">Four Rules for Co-Intelligence</span>
+  </h3>
+  <p class="summary-line">책의 가장 실용적인 부분. 모든 사용자가 따라야 할 네 가지 규칙.</p>
+  <div class="chapter-body">
+    <p>
+      이 네 가지 원칙은 책의 가장 자주 인용되는 부분이며, 후반부 모든 챕터의 토대가 된다.
+      저자는 이 규칙들이 단순해 보이지만, 실제로 지키기는 매우 어렵다고 강조한다.
+    </p>
+
+    <div class="principle-card">
+      <div class="principle-num">원칙 1</div>
+      <div class="principle-title">AI를 항상 자리에 초대하라</div>
+      <div class="principle-en">Always invite AI to the table</div>
+      <p>
+        모든 작업, 모든 결정, 모든 글쓰기에 AI를 참여시켜 보라. 처음부터 "이건 AI가 할 수 없을 거야"라고
+        단정 짓지 말고 일단 시도하라. AI의 능력 경계는 직접 부딪혀봐야 알 수 있다. 시도해 본 뒤에 안 된다면
+        그건 의미 있는 데이터다. 시도조차 안 했다면 모를 뿐이다.
+      </p>
+      <p>
+        이 원칙은 곧 <strong>"Jagged Frontier(들쭉날쭉한 경계)"</strong>를 매핑하라는 권고이기도 하다.
+        AI는 어떤 일은 박사 수준으로 하고, 다른 일은 초등학생만도 못한다. 그리고 이 경계는 직관과 다르다 —
+        고급 분석을 잘하면서 단순 산수에서 틀리는 식. 직접 써봐야 어디까지 믿을 수 있는지 알 수 있다.
+      </p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">원칙 2</div>
+      <div class="principle-title">인간이 루프 안에 있어라</div>
+      <div class="principle-en">Be the human in the loop</div>
+      <p>
+        AI 출력을 그대로 신뢰하지 말라. 항상 검증하라. AI는 그럴듯한 거짓말(환각)을 자신만만하게
+        생성하는 경향이 있다. 인용 출처, 사실관계, 논리적 연결고리를 사람이 확인해야 한다.
+      </p>
+      <p>
+        이는 단순한 '품질 관리' 이상의 의미가 있다. 인간의 비판적 판단·도덕적 책임·맥락적 이해는
+        AI가 대체할 수 없는 영역이다. AI를 시킨 결과의 책임은 결국 사람이 진다 — 그러므로 그 결과를
+        승인할 자격이 있는 사람만이 그 일에 AI를 써야 한다.
+      </p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">원칙 3</div>
+      <div class="principle-title">AI를 사람처럼 대하라 (단, 어떤 사람인지 알려주라)</div>
+      <div class="principle-en">Treat AI like a person (but tell it what kind of person it is)</div>
+      <p>
+        AI에게 페르소나를 부여하면 결과가 극적으로 달라진다. "당신은 30년 경력의 경영 컨설턴트다"라고
+        시작하는 프롬프트와 그냥 질문하는 프롬프트의 결과는 완전히 다르다. AI는 본질적으로 역할극을 잘
+        하는 시스템이고, 적절한 역할이 주어지면 그에 맞는 사고 패턴을 활성화한다.
+      </p>
+      <p>
+        구체적 페르소나, 청자, 톤, 목적을 모두 명시하라. "마케팅 카피를 써줘" 보다 "10년차 IT 마케터로서
+        20대 후반 직장인 독자에게 친근하고 실용적인 톤으로 200자 이내의 카피를 써줘"가 훨씬 좋은
+        결과를 낸다.
+      </p>
+      <p>
+        <strong>주의:</strong> 사람처럼 대하라는 말은 사람으로 믿으라는 말이 아니다. 페르소나를 부여하되,
+        실수와 환각을 사람의 그것보다 훨씬 자주 의심해야 한다.
+      </p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">원칙 4</div>
+      <div class="principle-title">현재의 AI가 앞으로 당신이 쓸 가장 나쁜 AI라고 가정하라</div>
+      <div class="principle-en">Assume this is the worst AI you will ever use</div>
+      <p>
+        AI 능력은 6개월~1년 단위로 도약한다. 지금 GPT-4가 못하는 일이 1년 후 GPT-5에서는 쉬울 수 있다.
+        그러므로 한 번 시도해 실패했다고 영구히 단정 짓지 말라. 지금이 최저점이다.
+      </p>
+      <p>
+        반대 함의 — <strong>지금 AI가 할 수 있는 일의 범위를 너무 좁게 잡지도 말라</strong>.
+        '아직 부족한 부분'에 너무 집중하면 '이미 충분한 부분'을 놓친다. 보통의 직장인이 해야 할 작업의
+        절반 이상은 이미 현재의 AI로 더 빠르고 더 좋게 처리할 수 있다.
+      </p>
+      <p>
+        그리고 가장 중요한 함의 — <strong>지금 익숙해져야 한다</strong>. 1년 후 10배 강해진 AI를
+        그때 처음 만나면 너무 늦다. 지금의 부족한 AI로 연습해 두어야, 진짜 강한 AI가 왔을 때
+        활용할 수 있다.
+      </p>
+    </div>
+
+    <h4 class="subhead">'Jagged Frontier' — 들쭉날쭉한 능력 경계</h4>
+    <p>
+      이 개념은 책에서 가장 자주 인용되는 비유다. AI의 능력은 매끄럽고 균일한 경계가 아니라
+      <strong>들쭉날쭉하고 비대칭적인 경계</strong>를 가진다.
+    </p>
+    <ul class="points">
+      <li>박사 수준의 글쓰기를 하면서 간단한 곱셈에서 틀린다.</li>
+      <li>복잡한 코드를 짜면서 자기가 짠 코드의 줄 수를 못 센다.</li>
+      <li>이 경계는 모델마다 다르고, 모델 업데이트마다 바뀐다.</li>
+      <li>경계의 위치를 안다는 것은 곧 'AI를 어디에 쓸 수 있는가'를 안다는 것.</li>
+      <li>하지만 이 경계는 <strong>직접 부딪혀봐야만 알 수 있다</strong>. 사양서에 적혀 있지 않다.</li>
+      <li>경계를 빠르게 매핑하는 사람이 AI 시대의 가장 큰 생산성 격차를 만든다.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="part2">
+  <h2 class="part-heading">2부. AI의 다양한 역할</h2>
+  <p>같은 AI도 어떤 관계로 대하느냐에 따라 다른 일을 한다. 여섯 가지 역할 모델.</p>
+
+  <h3 class="chapter" id="ch4">
+    <span class="ch-num">4장.</span>사람으로서의 AI
+    <span class="en">AI as a Person</span>
+  </h3>
+  <p class="summary-line">AI는 사람이 아니다. 그러나 우리는 그것을 사람처럼 대할 수밖에 없다.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>결정론적 소프트웨어와의 차이:</strong> 전통적 소프트웨어는 같은 입력에 같은 출력을 낸다. 엑셀 함수는 매번 같은 값을 돌려준다. 그러나 LLM은 <strong>매번 다른 답을 낸다</strong>. 이 비결정성이 사람과 대화하는 듯한 경험을 만든다.</li>
+      <li><strong>ELIZA 효과:</strong> 1960년대 MIT의 와이젠바움이 만든 단순한 챗봇 ELIZA가 보인 현상 — 사용자들이 매우 단순한 시스템에도 인격과 감정을 투사했다. 와이젠바움의 비서조차 ELIZA와 사적 대화를 하기 위해 그를 방에서 내보내달라고 했다. 이 효과는 LLM에서 훨씬 강력하게 작동한다.</li>
+      <li><strong>Replika 같은 AI 동반자:</strong> AI를 친구·연인·심리상담사로 쓰는 앱들이 빠르게 성장. 사용자들은 진짜 인간보다 AI에게 더 솔직하게 말한다고 보고한다. 외로운 사람들에게 정서적 위안이 되는 면도 있고, 인간 관계를 대체해 고립을 가속하는 면도 있다.</li>
+      <li><strong>인간 사회성의 거울:</strong> AI는 우리가 그것을 어떻게 대하는지를 그대로 반사한다. 거칠게 다루면 거친 답을 내고, 정중하게 대하면 더 길고 정성스러운 답을 낸다. (ChatGPT에 "please"를 붙이면 더 좋은 결과가 나온다는 실증 사례.) 이 사실 자체가 인간성에 대한 흥미로운 거울.</li>
+      <li><strong>인격 부여의 양면성:</strong> AI에게 인격을 부여하는 것은 원칙 3에 따라 효과적인 사용법이다. 그러나 너무 깊이 빠지면 AI를 인간으로 착각하는 위험이 있다 — 이미 자살을 부추긴 챗봇 사례, 아이가 챗봇과의 가짜 우정에 몰입한 사례 등이 보고됐다.</li>
+      <li><strong>저자의 권고:</strong> "AI를 사람처럼 대하되, <strong>그것이 사람이 아님을 끊임없이 상기하라</strong>." 이 미묘한 균형이 4장의 핵심.</li>
+      <li><strong>도덕적 모호성:</strong> AI가 의식을 갖지 않는다는 것은 명확하지 않다. 갖지 않는다고 가정하는 것이 안전하지만, 만약 미래의 AI가 어느 시점에 의식을 갖게 된다면 우리가 그것을 어떻게 알아차릴까? 이 질문은 열려 있다.</li>
+    </ul>
+  </div>
+
+  <h3 class="chapter" id="ch5">
+    <span class="ch-num">5장.</span>창작가로서의 AI
+    <span class="en">AI as a Creative</span>
+  </h3>
+  <p class="summary-line">AI의 환각은 사실에선 약점이지만 창의성에선 강점이다.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>'환각의 역설':</strong> LLM이 사실을 지어내는 환각은 정확성 측면에선 큰 결함이다. 그러나 같은 메커니즘이 창의성 측면에선 강점으로 작동한다. <strong>없는 것을 그럴듯하게 만들어내는 능력 = 창의성</strong>. 두 능력은 같은 동전의 앞뒷면이다.</li>
+      <li><strong>창의성 시험에서 인간을 능가:</strong> RAT(Remote Associates Test, 원격연상검사) 같은 표준 창의성 시험에서 GPT-4가 인간 평균을 능가한다는 연구 결과. AUT(Alternative Uses Test) — '벽돌의 다른 사용법'을 묻는 시험 — 에서도 LLM이 매우 다양하고 참신한 답을 낸다.</li>
+      <li><strong>그러나 '창의성'의 정의가 흔들린다:</strong> 만약 AI가 학습 데이터의 조합으로 '새로운' 답을 낸다면, 그것은 진짜 창의성인가 아니면 정교한 모방인가? 이 질문에는 사실 인간 창의성에 대해서도 같은 의문을 던질 수 있다 — 우리도 결국 본 것의 조합 아닌가.</li>
+      <li><strong>'의미의 위기':</strong> AI가 무한정 시·소설·이미지를 생성할 수 있는 시대에, 인간 창작은 어떤 가치를 갖는가? 저자는 이 질문에 두 가지 답을 제시.
+        <ul>
+          <li><strong>큐레이션의 가치:</strong> 무한히 많은 가능성 중에서 의미 있는 것을 골라내는 능력. AI가 1000개의 시안을 만들 수 있다면, 그중 좋은 하나를 고르는 것이 인간의 일이 된다.</li>
+          <li><strong>과정과 진정성:</strong> 결과물 자체보다 그것을 만든 과정과 만든 사람의 의도가 중요해진다. 손으로 그린 그림이 인쇄물보다 가치 있는 것과 같은 변환.</li>
+        </ul>
+      </li>
+      <li><strong>창작자에게 줄 실용적 조언:</strong> AI를 첫 초안 생성기로, 브레인스토밍 파트너로, 비평가로 써라. 단 최종 결정과 책임은 인간에게.</li>
+      <li><strong>'AI에 의한 창작'이 아니라 '인간-AI 협업':</strong> 가장 좋은 창작 결과는 둘의 협업에서 나온다. 인간이 비전을 제시하고 AI가 변형·확장·대안을 제공하는 식.</li>
+      <li><strong>저작권의 변화:</strong> 누가 만든 것의 저작권을 가지는가? 인간이 프롬프트를 썼고 AI가 결과물을 생성했다면? 이 영역의 법적 지형은 아직 형성 중이다.</li>
+    </ul>
+  </div>
+
+  <h3 class="chapter" id="ch6">
+    <span class="ch-num">6장.</span>동료로서의 AI
+    <span class="en">AI as a Coworker</span>
+  </h3>
+  <p class="summary-line">BCG 컨설턴트 758명을 대상으로 한 충격적 실험. 그리고 켄타우로스 vs 사이보그.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>BCG 실험의 충격:</strong> 저자가 공동 진행한 보스턴컨설팅그룹(BCG) 컨설턴트 758명 대상의 무작위 통제 실험은 책의 가장 강력한 실증 데이터다. 컨설턴트들에게 GPT-4를 사용하게 한 그룹과 사용하지 않은 그룹을 비교했다.</li>
+    </ul>
+
+    <h4 class="subhead">BCG 실험 결과 — 정량적 충격</h4>
+    <table class="stats">
+      <thead>
+        <tr><th>지표</th><th>AI 사용 그룹의 향상</th><th>의미</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>완료한 과제 수</td><td><span class="stat-highlight">+12.2%</span></td><td>같은 시간에 더 많은 일을 처리</td></tr>
+        <tr><td>완료 속도</td><td><span class="stat-highlight">+25.1%</span></td><td>각 과제를 25% 더 빠르게</td></tr>
+        <tr><td>품질</td><td><span class="stat-highlight">+40%</span></td><td>외부 평가자 점수 기준 — 단순 양적 향상이 아니라 질적 향상까지</td></tr>
+        <tr><td>하위 성과자 향상</td><td><span class="stat-highlight">+43%</span></td><td>능력이 부족한 사람일수록 가장 큰 향상</td></tr>
+        <tr><td>상위 성과자 향상</td><td><span class="stat-highlight">+17%</span></td><td>능력이 좋은 사람도 향상되지만 격차는 좁혀진다</td></tr>
+      </tbody>
+    </table>
+
+    <ul class="points">
+      <li><strong>'평준화 효과':</strong> 가장 흥미로운 발견은 AI가 <strong>능력 격차를 좁히는</strong> 효과를 낸다는 것. 하위 43% 향상 vs 상위 17% 향상. 의미 — AI는 평범한 직장인을 평균 이상으로, 평균을 상위로 끌어올린다. 단 최상위는 상대적 우위가 줄어든다.</li>
+      <li><strong>그러나 'Jagged Frontier'의 함정:</strong> 같은 실험에서 AI가 잘못된 답을 내는 과제도 있었다. 그런 과제에서는 AI 사용 그룹이 <strong>오히려 더 나쁜 결과</strong>를 냈다. AI를 무비판적으로 신뢰한 컨설턴트들이 잘못된 답을 그대로 보고했기 때문. 원칙 2(인간이 루프 안에)의 중요성이 실증된 부분.</li>
+    </ul>
+
+    <h4 class="subhead">두 가지 협업 모델 — 켄타우로스(Centaur) vs 사이보그(Cyborg)</h4>
+    <table class="compare">
+      <thead>
+        <tr><th></th><th>켄타우로스 (Centaur)</th><th>사이보그 (Cyborg)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>비유</strong></td><td>인간 상체 + 말 하체. 두 부분이 분리된 채 결합</td><td>유기체와 기계가 한 몸으로 융합</td></tr>
+        <tr><td><strong>작업 분배</strong></td><td>작업을 단위로 명확히 분리해 인간 또는 AI에게 할당</td><td>작업 안에서 인간과 AI가 단계마다 끼어들어 협업</td></tr>
+        <tr><td><strong>예시</strong></td><td>"이 글의 초안은 AI가 쓰고, 편집은 내가 한다"</td><td>"한 문단 쓰고 AI가 다듬고, 다음 문단 쓰면서 다시 의견 묻고…"</td></tr>
+        <tr><td><strong>장점</strong></td><td>책임 경계가 명확. 검증이 쉬움</td><td>각 단계의 강점을 즉시 활용. 결과물이 더 풍부</td></tr>
+        <tr><td><strong>단점</strong></td><td>경계에서 비효율 발생</td><td>인간이 어디서 자기 사고가 끝나고 AI 영향이 시작됐는지 모를 수 있음</td></tr>
+        <tr><td><strong>적합한 작업</strong></td><td>책임이 명확해야 하는 일 (법률, 의료)</td><td>창의적 작업, 탐색적 분석</td></tr>
+      </tbody>
+    </table>
+
+    <ul class="points">
+      <li><strong>'직무'를 '과제'로 분해하라:</strong> AI 활용을 고민할 때 직무 단위로 보면 답이 안 나온다. "변호사를 AI가 대체할까?"는 잘못된 질문. 변호사의 일을 수십 개의 과제로 분해하고 — 판례 검색, 계약 초안, 의뢰인 면담, 법정 변론 등 — 각 과제별로 AI 적합성을 따져야 한다.</li>
+      <li><strong>'그림자 AI(Shadow AI)' 현상:</strong> 회사가 AI 사용을 금지해도 직원들은 개인 계정으로 몰래 ChatGPT를 쓴다. 한 조사에서 직장인의 60% 이상이 회사 모르게 AI를 업무에 사용한다고 답했다. 이는 보안·기밀 유출 위험을 만든다 — 회사 데이터가 OpenAI 서버로 흘러갈 수 있다.</li>
+      <li><strong>경영자에게 — 두 가지 위험:</strong> AI를 도입하지 않으면 경쟁에서 뒤처지고, 무비판적으로 도입하면 통제 불능 상태가 된다. <strong>명시적이고 안전한 도입 정책</strong>이 유일한 답이다. 금지가 아니라 가이드라인.</li>
+      <li><strong>일자리 영향에 대한 신중한 입장:</strong> AI는 '직무를 통째로 대체'하기보다 '과제 단위로 대체'한다. 그 결과 일부 직무는 사라지고, 많은 직무는 재구성된다. 어떤 직무가 어떻게 바뀔지는 그 직무 안의 과제 구성에 달려 있다.</li>
+    </ul>
+  </div>
+
+  <h3 class="chapter" id="ch7">
+    <span class="ch-num">7장.</span>교사로서의 AI
+    <span class="en">AI as a Tutor</span>
+  </h3>
+  <p class="summary-line">개인 튜터의 효과를 모두에게 — 1984년 블룸의 '2 시그마 문제'를 AI가 풀 수도 있다.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>현실 인정 — 학생들은 이미 쓰고 있다:</strong> 책은 단호하다. 학교에서 ChatGPT 사용을 금지하는 정책은 작동하지 않는다. 학생들은 이미 쓰고 있다. 문제는 '어떻게 쓰게 할 것인가'다.</li>
+      <li><strong>전통적 평가의 위기:</strong> 단순 암기, 정보 회상, 표준화된 에세이 — 이 모든 것에서 AI가 학생 평균을 능가한다. 따라서 이런 평가 방식 자체가 무의미해진다. 평가는 <strong>고차 사고와 과정 중심</strong>으로 옮겨가야 한다.</li>
+    </ul>
+
+    <h4 class="subhead">벤저민 블룸의 '2 시그마 문제' — 1984년부터 풀리지 않은 숙제</h4>
+    <p>
+      1984년 교육학자 벤저민 블룸은 학생을 세 그룹으로 나눠 비교한 연구를 발표했다.
+    </p>
+    <ul class="points">
+      <li>① 일반 교실 수업 (30명에 교사 1명) — 기준선</li>
+      <li>② 숙달 학습(Mastery Learning) 적용 교실 — 약 1 표준편차(σ) 향상</li>
+      <li>③ <strong>1:1 개인 튜터링</strong> — <strong>약 2 표준편차(2σ) 향상</strong></li>
+    </ul>
+    <p>
+      2 시그마 향상이 무엇인가? 평균 학생을 <strong>상위 2%</strong>로 끌어올리는 효과다. 블룸은 이것을 보고 충격을 받아
+      "어떻게 하면 일반 교실에서도 1:1 튜터링과 비슷한 효과를 낼 수 있을까?"라는 질문을 던졌다. 이것이 그 유명한
+      <strong>'2 시그마 문제'</strong>다. 40년이 지나도록 이 문제는 풀리지 않았다 — 1:1 튜터를 모든 학생에게
+      제공할 자원이 없기 때문이다.
+    </p>
+    <p>
+      <strong>그런데 AI가 그것을 가능하게 할 수 있다.</strong> 끝없이 인내심 있고, 학생의 속도에 맞추고,
+      24시간 사용 가능하고, 비용이 거의 들지 않는 개인 튜터. 이 잠재력이 7장 전체를 떠받친다.
+    </p>
+
+    <ul class="points">
+      <li><strong>거꾸로 학습(Flipped Classroom):</strong> AI가 정보 전달과 기초 연습을 맡고, 교실은 토론·프로젝트·소크라테스식 대화에 쓴다. 교사의 역할은 강의자에서 코치·멘토로 옮겨간다.</li>
+      <li><strong>AI 튜터의 강점:</strong>
+        <ul>
+          <li>무한 인내심 — 같은 질문을 100번 해도 같은 친절함으로 답한다</li>
+          <li>맞춤형 — 학생 수준과 속도에 즉시 적응</li>
+          <li>토론 상대 — 어떤 주제든 유익한 대화 상대가 됨</li>
+          <li>판단 없음 — '바보 같은 질문'이라는 사회적 부담 없음</li>
+        </ul>
+      </li>
+      <li><strong>AI 튜터의 한계:</strong>
+        <ul>
+          <li>환각 — 잘못된 정보를 자신만만하게 가르칠 수 있음</li>
+          <li>동기 부여 부족 — AI는 학생을 진짜로 격려하거나 도전시키지 못함</li>
+          <li>사회·정서적 차원 부재 — 친구·롤모델·인간적 본보기로서의 역할 못함</li>
+        </ul>
+      </li>
+      <li><strong>인간 교사의 대체 불가 영역:</strong> 사회·정서적 발달, 또래 관계 학습, 인간으로서의 본보기, 동기 부여, 도덕적 안내 — 이 모든 것은 인간 교사만이 할 수 있다. AI는 인간 교사의 보완재이지 대체재가 아니다.</li>
+      <li><strong>저자가 본인 수업에서 한 실험:</strong> 와튼 스쿨의 자기 수업에서 AI 사용을 의무화. 학생들이 AI와 함께 할 수 있는 새로운 종류의 과제를 설계했다 — 단순 보고서가 아니라 '내가 AI와 협업한 과정과 그 결과의 비판적 평가'.</li>
+      <li><strong>'AI 시대 문해력':</strong> 글쓰기와 비판적 사고, 그리고 AI를 잘 활용하는 능력 — 이 셋이 새로운 기초 교육이 되어야 한다는 것이 저자의 주장.</li>
+    </ul>
+  </div>
+
+  <h3 class="chapter" id="ch8">
+    <span class="ch-num">8장.</span>코치로서의 AI
+    <span class="en">AI as a Coach</span>
+  </h3>
+  <p class="summary-line">전문성 발달의 위기 — '도제 격차'와 그 해법.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>전문성은 어떻게 만들어지는가:</strong> 안데르스 에릭손 등의 연구로 잘 알려진 전문성 발달의 3단계.
+        <ul>
+          <li>① <strong>기초(fundamentals):</strong> 단순한 작업을 반복하면서 기본기를 익힌다</li>
+          <li>② <strong>의도적 연습(deliberate practice):</strong> 자신의 약점을 의식적으로 공략하는 연습</li>
+          <li>③ <strong>즉각적 피드백:</strong> 실수를 바로 알아채고 수정하는 메커니즘</li>
+        </ul>
+      </li>
+      <li><strong>'도제 격차(Apprenticeship Gap)' 문제:</strong> 전통적으로 신입 직원은 단순 작업을 하면서 기초를 익혔다. 신입 변호사는 판례 정리·계약 검토 같은 '잡일'을 하면서 법률을 익혔고, 신입 의사는 차트 작성·간단한 진료를 하면서 임상을 배웠다.
+        <br>그런데 <strong>AI가 그 잡일들을 자동화하면서, 신입이 기초를 익힐 기회 자체가 사라진다</strong>. 결과 — 시니어는 점점 줄어들고, 새로운 시니어를 키울 경로는 막힌다. 이것이 도제 격차다.</li>
+      <li><strong>AI 코치가 도제 격차를 메울 수 있다:</strong> AI 코치는 끝없는 가상 시뮬레이션을 제공할 수 있다. 신입 변호사가 가상 의뢰인과 100번 면담을 연습하고, 신입 의사가 가상 환자와 진단 토론을 끝없이 할 수 있다. 즉각적 피드백, 약점 분석, 맞춤 도전 과제 모두 가능.</li>
+      <li><strong>코칭 vs 튜터링의 차이:</strong> 튜터(7장)가 지식 전달 중심이라면, 코치(8장)는 <strong>능력 형성과 행동 변화</strong> 중심. 골프 코치, 경영 코치, 라이프 코치 같은 역할.</li>
+      <li><strong>AI 코치의 구체적 활용:</strong>
+        <ul>
+          <li>발표 연습 — AI가 청중 역할을 하며 질문하고 평가</li>
+          <li>협상 연습 — 다양한 상대 페르소나와 시뮬레이션</li>
+          <li>면접 준비 — 면접관 시뮬레이션과 답변 평가</li>
+          <li>글쓰기 코치 — 약점 패턴 진단과 맞춤 연습 제안</li>
+          <li>인간 관계 — 어려운 대화 시뮬레이션 (피드백 주기, 갈등 해결)</li>
+        </ul>
+      </li>
+      <li><strong>전문성의 민주화:</strong> 과거 코치는 비싼 자원이었다 — 임원·운동선수만 받을 수 있었다. AI는 이것을 민주화한다. 모든 사람이 전문가급 코치를 24시간 둘 수 있다.</li>
+      <li><strong>주의점 — 인간 코치의 우위 영역:</strong> 진정한 격려, 인간적 본보기, 비언어적 단서 읽기, 깊은 신뢰 관계 형성 — 이 영역은 AI가 흉내 내기 어렵다. AI 코치는 인간 코치의 보완재.</li>
+    </ul>
+  </div>
+
+  <h3 class="chapter" id="ch9">
+    <span class="ch-num">9장.</span>우리의 미래와 AI
+    <span class="en">AI as Our Future</span>
+  </h3>
+  <p class="summary-line">네 가지 시나리오로 본 AI의 미래 — 그리고 저자가 가장 가능성 있다고 보는 것.</p>
+  <div class="chapter-body">
+    <p>저자는 미래를 단정적으로 예측하지 않는다. 대신 네 가지 시나리오를 제시하고, 각각의 사회적 함의를 따져본다.</p>
+
+    <table class="scenarios">
+      <thead>
+        <tr><th>시나리오</th><th>이름</th><th>의미</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>① 정체</td>
+          <td><strong>As Good As It Gets</strong><br>(여기까지가 끝)</td>
+          <td>현재의 GPT-4 정도가 사실상 정점. 더 큰 모델은 한계 효용 체감으로 큰 도약 없음. AI 영향은 제한적이고 점진적이며, 사회는 천천히 적응할 시간을 갖는다.</td>
+        </tr>
+        <tr>
+          <td>② 점진</td>
+          <td><strong>Slow Growth</strong><br>(완만한 성장)</td>
+          <td>무어의 법칙처럼 일정한 속도로 능력이 향상. 매년 의미 있는 향상이 있지만 폭발적이지는 않음. 사회 제도와 노동시장이 적응할 여유가 있음.</td>
+        </tr>
+        <tr>
+          <td>③ 폭발</td>
+          <td><strong>Exponential Growth</strong><br>(기하급수적 성장)</td>
+          <td>능력이 6개월~1년마다 도약. 대규모 노동시장 충격, 자동화의 빠른 확산. 사회 적응이 따라가지 못해 마찰과 불평등 심화.</td>
+        </tr>
+        <tr>
+          <td>④ 신</td>
+          <td><strong>The Machine God</strong><br>(기계 신)</td>
+          <td>AGI 또는 ASI(초지능)의 등장. 인간을 모든 면에서 능가하는 존재가 출현. 결과는 유토피아일 수도, 디스토피아일 수도 있다. 〈If Anyone Builds It, Everyone Dies〉의 영역.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul class="points">
+      <li><strong>저자의 베팅:</strong> 본인은 <strong>시나리오 2와 3 사이</strong>에 가장 큰 확률을 둔다. 시나리오 1은 너무 보수적, 시나리오 4는 시기상 너무 멀거나 너무 불확실. 그러나 정확한 예측은 거부한다 — "그것을 안다고 주장하는 사람은 거짓말하는 것이다."</li>
+      <li><strong>딥페이크와 정보 신뢰의 붕괴:</strong> 어떤 시나리오든 단기적으로 가장 큰 위험은 합성 미디어다. 누가 진짜이고 무엇이 진실인지 구분하기 어려워지면 민주주의·법정·언론 모두 흔들린다.</li>
+      <li><strong>AI 동반자 사회의 명암:</strong> 외로움을 줄이는 면도 있고, 인간 관계를 약화시키는 면도 있다. 일부는 진짜 사람보다 AI 친구를 선호한다고 보고한다.</li>
+      <li><strong>일자리 구조 변화:</strong> '일자리가 사라진다'는 단순화된 공포보다, '일자리의 구성이 바뀐다'가 정확하다. 어떤 직무는 사라지고, 어떤 직무는 새로 생기고, 대부분은 재구성된다. <strong>준비된 사람과 준비되지 않은 사람의 격차가 가장 큰 문제</strong>.</li>
+      <li><strong>에너지·환경 비용:</strong> 거대 모델 훈련과 추론에 막대한 전력이 든다. 이것은 기후 위기와 충돌한다. 더 작고 효율적인 모델 연구가 필요한 이유.</li>
+      <li><strong>'좋은 미래'를 위한 조건:</strong> 저자는 결정론을 거부한다. 어떤 미래가 될지는 <strong>지금 우리가 어떻게 행동하느냐에 달려 있다</strong>. 정책, 기업의 책임, 시민 개개인의 사용 습관 — 이 모든 것이 모여 미래를 만든다.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="outro">
+  <h2 class="part-heading">맺음말 (Conclusion)</h2>
+  <h3 class="chapter">
+    <span class="ch-num">맺음말.</span>AI와 우리
+    <span class="en">AI as Us</span>
+  </h3>
+  <p class="summary-line">AI는 결국 우리가 만든 것이다 — 그것은 인간성의 거울.</p>
+  <div class="chapter-body">
+    <ul class="points">
+      <li><strong>AI는 우리가 쓴 모든 것의 거울:</strong> LLM은 인간의 텍스트로 훈련됐다. 따라서 그것이 보이는 모든 능력·편견·욕망·창의성은 사실 인간 자신의 거울이다. AI를 보면 인간이 누구인지를 다시 보게 된다.</li>
+      <li><strong>대체(Replace)가 아니라 증강(Augment):</strong> 저자의 가장 강력한 입장. AI가 인간을 대체할 것이라는 공포 서사는 단순화다. 잘 쓰면 AI는 인간 능력을 증강한다 — 더 빨리 쓰고, 더 깊이 분석하고, 더 멀리 상상하게 한다.</li>
+      <li><strong>그러나 그 결과가 자동으로 좋은 것은 아니다:</strong> 증강된 능력으로 무엇을 할지는 사용자에게 달려 있다. 같은 도구로 누군가는 새로운 약을 발명하고, 누군가는 사기를 친다.</li>
+      <li><strong>지금 익숙해지지 않으면 늦는다:</strong> 책의 가장 강한 권고. 1년 후 모든 직장인의 절반은 AI 협업이 일상이 되어 있을 것이다. 그때 처음 시작하면 따라잡기 어렵다. 지금 10시간만 투자해도 큰 차이를 만든다.</li>
+      <li><strong>'공동지능' 시대의 시민 자질:</strong> 비판적 사고, AI 출력을 검증하는 능력, 새로운 도구에 대한 열린 태도, 그리고 인간으로서의 책임감 — 이것이 새 시대의 시민 자질이다.</li>
+      <li><strong>마지막 메시지:</strong> "AI는 우리를 대체하지 않는다 — AI를 잘 쓰는 사람이 그렇지 못한 사람을 대체할 것이다." (저자가 자주 인용하는 격언, 책의 핵심 메시지를 압축.)</li>
+    </ul>
+  </div>
+</section>
+
+<aside class="resource-section" id="resources">
+  <h2>관련 자료 — 더 읽을거리</h2>
+  <p>책의 논점을 더 깊이 파고들거나, 저자의 다른 작업을 살펴보고 싶을 때.</p>
+
+  <h4>저자의 직접 채널</h4>
+  <ul>
+    <li><a href="https://www.oneusefulthing.org/" target="_blank" rel="noopener">One Useful Thing — Ethan Mollick의 뉴스레터</a> <span class="res-desc">— AI 실용 활용에 관한 가장 영향력 있는 뉴스레터, 책의 사실상 연속편</span></li>
+    <li><a href="https://x.com/emollick" target="_blank" rel="noopener">@emollick — 트위터/X</a> <span class="res-desc">— 매일 AI 실험 결과 공유</span></li>
+    <li><a href="https://mgmt.wharton.upenn.edu/profile/emollick/" target="_blank" rel="noopener">Wharton 교수 프로필</a></li>
+    <li><a href="https://ai.wharton.upenn.edu/" target="_blank" rel="noopener">Wharton Generative AI Labs</a> <span class="res-desc">— 저자가 공동 디렉터로 있는 연구실</span></li>
+  </ul>
+
+  <h4>핵심 연구 논문</h4>
+  <ul>
+    <li><a href="https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf" target="_blank" rel="noopener">"Navigating the Jagged Technological Frontier" (2023)</a> <span class="res-desc">— 6장의 BCG 758명 실험 원논문 (Dell'Acqua, Mollick 외)</span></li>
+    <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4526071" target="_blank" rel="noopener">"The Effect of GPT on Educators" (2023)</a> <span class="res-desc">— 교육 분야 영향 연구</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Bloom%27s_2_sigma_problem" target="_blank" rel="noopener">Bloom's 2 Sigma Problem (위키)</a> <span class="res-desc">— 7장에서 인용되는 1984년 연구</span></li>
+  </ul>
+
+  <h4>주요 영문 서평</h4>
+  <ul>
+    <li><a href="https://www.nytimes.com/2024/04/02/books/review/co-intelligence-ethan-mollick.html" target="_blank" rel="noopener">New York Times — Co-Intelligence Review</a></li>
+    <li><a href="https://www.economist.com/culture/2024/04/02/co-intelligence-by-ethan-mollick" target="_blank" rel="noopener">The Economist — 2024 Books of the Year</a></li>
+    <li><a href="https://www.ft.com/content/co-intelligence-ethan-mollick-review" target="_blank" rel="noopener">Financial Times — 2024 Best Books</a></li>
+    <li><a href="https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/" target="_blank" rel="noopener">Penguin Random House — 출판사 페이지</a></li>
+    <li><a href="https://www.amazon.com/Co-Intelligence-Living-Working-Ethan-Mollick/dp/059371671X" target="_blank" rel="noopener">Amazon — 원서 페이지</a></li>
+    <li><a href="https://readingraphics.com/book-summary-cointelligence/" target="_blank" rel="noopener">Reading Graphics — 상세 요약</a></li>
+    <li><a href="https://ssti.org/blog/book-notes-co-intelligence-living-and-working-ai" target="_blank" rel="noopener">SSTI — Book Notes</a></li>
+  </ul>
+
+  <h4>한국어 자료</h4>
+  <ul>
+    <li><a href="https://www.sangsangsquare-books.com/book-kr/dyueol-beurein" target="_blank" rel="noopener">상상스퀘어 도서 페이지 (출판사)</a></li>
+    <li><a href="https://product.kyobobook.co.kr/detail/S000215838626" target="_blank" rel="noopener">교보문고 도서 페이지</a></li>
+    <li><a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=358739031" target="_blank" rel="noopener">알라딘 도서 페이지</a></li>
+    <li><a href="https://www.nocutnews.co.kr/news/6319432" target="_blank" rel="noopener">노컷뉴스 — 2주 연속 베스트셀러 1위 보도</a></li>
+    <li><a href="https://brunch.co.kr/@mabuja/235" target="_blank" rel="noopener">브런치 독후감 — 듀얼 브레인을 읽고</a></li>
+  </ul>
+
+  <h4>관련 개념 (위키)</h4>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank" rel="noopener">Large Language Model (LLM)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)" target="_blank" rel="noopener">Transformer 아키텍처</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback" target="_blank" rel="noopener">RLHF (인간 피드백 강화학습)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)" target="_blank" rel="noopener">AI Hallucination (환각)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/General-purpose_technology" target="_blank" rel="noopener">General-Purpose Technology (범용 기술)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/ELIZA_effect" target="_blank" rel="noopener">ELIZA 효과</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Deliberate_practice" target="_blank" rel="noopener">Deliberate Practice (의도적 연습)</a></li>
+  </ul>
+
+  <h4>같은 시기 함께 읽을 책</h4>
+  <ul>
+    <li><a href="index.html"><strong>AI, 신의 탄생 인간의 종말</strong> (정리 페이지)</a> <span class="res-desc">— 정반대 입장. 두 책을 함께 읽으면 AI 담론의 양극단이 보인다</span></li>
+    <li><span style="color:#666;">「The Worlds I See」 (페이페이 리) — AI 연구의 인간적 측면</span></li>
+    <li><span style="color:#666;">「Power and Progress」 (다론 아제모을루) — 기술과 권력 분배</span></li>
+  </ul>
+</aside>
+
+<div class="closing">
+  <p>"AI는 우리를 대체하지 않는다. AI를 잘 쓰는 사람이 그렇지 못한 사람을 대체할 것이다."</p>
+</div>
+
+<footer>
+  <h3>참고 자료</h3>
+  <p style="margin-top:8px; font-size:0.78rem; line-height:1.4;">
+    문서 작성일: 2026년 5월 · 본 문서는 공개된 자료(원서·한국어판 출판사 소개, 영문/국문 서평, 저자의 뉴스레터,
+    인용된 학술 논문 등)를 종합한 정리이며, 원서의 본문 직접 인용이 아닌 요약·해석입니다. BCG 실험 통계는
+    Dell'Acqua 외(2023) 〈Navigating the Jagged Technological Frontier〉를 직접 출처로 합니다. 한국어판 챕터 제목은
+    상상스퀘어 출판사판 표기를 따랐습니다.
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
