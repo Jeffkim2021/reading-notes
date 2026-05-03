@@ -503,14 +503,6 @@
   <p style="margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed #d8cfc4; font-size: 0.82rem; color: var(--muted); line-height: 1.5;">
     각 챕터의 끝에 <strong style="color: #7a3a28;">"심화 자료"</strong> 펼침 박스가 있습니다.
     클릭하면 저자들이 운영하는 공식 사이트의 챕터별 Q&amp;A로 직접 이동할 수 있는 큐레이션된 링크 목록이 나타납니다.
-    <br>
-    <span style="color: #7a3a28;">★ 외부 영문 링크 옆에 두 개의 번역 배지가 자동으로 추가됩니다:</span>
-    <a href="#" onclick="return false" style="color:#0078d4; border:1px solid #0078d4; padding:0 6px; border-radius:8px; font-size:0.75rem; background:#0078d412;">Bing 번역</a>
-    (Microsoft) /
-    <a href="#" onclick="return false" style="color:#03c75a; border:1px solid #03c75a; padding:0 6px; border-radius:8px; font-size:0.75rem; background:#03c75a12;">Papago</a>
-    (네이버). 둘 다 한국에서 작동합니다. 원문은 본 링크를 그대로 클릭하면 됩니다.
-    <br>
-    <span style="color:#888; font-size:0.78rem;">또는 Chrome/Edge 브라우저는 영문 페이지를 열고 우클릭 → "한국어로 번역"을 사용해도 됩니다 (가장 자연스러운 번역 품질).</span>
   </p>
 </nav>
 
@@ -1204,71 +1196,5 @@
 </footer>
 
 </div>
-
-<script>
-(function() {
-  // 영문 페이지로 인식하여 옆에 한국어 번역 배지를 추가할 도메인 화이트리스트
-  var TRANSLATE_DOMAINS = new Set([
-    'ifanyonebuildsit.com',
-    'en.wikipedia.org',
-    'lesswrong.com',
-    'www.lesswrong.com',
-    'astralcodexten.com',
-    'www.astralcodexten.com',
-    'asteriskmag.com',
-    'reflectivealtruism.com',
-    'kdonohue.substack.com',
-    'ai-frontiers.org',
-    'templacity.com',
-    'forum.effectivealtruism.org',
-    'intelligence.org',
-    'hpmor.com'
-  ]);
-
-  // Bing 웹페이지 번역 URL — 한국에서도 작동
-  function toBingTranslate(href) {
-    return 'https://www.translatetheweb.com/?from=en&to=ko&a=' + encodeURIComponent(href);
-  }
-  // Naver Papago 웹사이트 번역 (대체)
-  function toPapagoTranslate(href) {
-    return 'https://papago.naver.com/website?source=en&target=ko&url=' + encodeURIComponent(href);
-  }
-
-  function makeBadge(label, href, title, color) {
-    var b = document.createElement('a');
-    b.href = href;
-    b.target = '_blank';
-    b.rel = 'noopener';
-    b.textContent = label;
-    b.title = title;
-    b.style.cssText =
-      'margin-left:5px; font-size:0.7rem; padding:1px 7px; border-radius:9px;' +
-      'text-decoration:none; vertical-align:middle; white-space:nowrap;' +
-      'color:' + color + '; border:1px solid ' + color + '40; background:' + color + '12;';
-    return b;
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var anchors = document.querySelectorAll('a[href]');
-    anchors.forEach(function(a) {
-      var u;
-      try { u = new URL(a.href); } catch (_) { return; }
-      if (!TRANSLATE_DOMAINS.has(u.hostname)) return;
-      // 이미 배지가 있으면 건너뛰기
-      if (a.nextElementSibling && a.nextElementSibling.classList && a.nextElementSibling.classList.contains('kr-badge')) return;
-
-      var bing = makeBadge('Bing 번역', toBingTranslate(a.href),
-        'Microsoft Bing 번역으로 한국어 보기', '#0078d4');
-      bing.classList.add('kr-badge');
-      var papago = makeBadge('Papago', toPapagoTranslate(a.href),
-        '네이버 Papago로 한국어 보기', '#03c75a');
-      papago.classList.add('kr-badge');
-
-      a.insertAdjacentElement('afterend', papago);
-      a.insertAdjacentElement('afterend', bing);
-    });
-  });
-})();
-</script>
 </body>
 </html>
