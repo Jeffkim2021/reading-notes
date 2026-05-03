@@ -503,6 +503,9 @@
   <p style="margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed #d8cfc4; font-size: 0.82rem; color: var(--muted); line-height: 1.5;">
     각 챕터의 끝에 <strong style="color: #7a3a28;">"심화 자료"</strong> 펼침 박스가 있습니다.
     클릭하면 저자들이 운영하는 공식 사이트의 챕터별 Q&amp;A로 직접 이동할 수 있는 큐레이션된 링크 목록이 나타납니다.
+    <br>
+    <span style="color: #7a3a28;">★ 외부 영문 링크는 Google 번역을 거쳐 한국어로 자동 변환되어 새 탭에서 열립니다.</span>
+    원문으로 보고 싶다면 ⌘(Ctrl)+클릭 또는 우클릭 → "새 탭에서 열기"를 사용하세요.
   </p>
 </nav>
 
@@ -1196,5 +1199,49 @@
 </footer>
 
 </div>
+
+<script>
+(function() {
+  // 영문 페이지를 자동으로 Google 번역(한국어)을 거쳐 열도록 하는 도메인 화이트리스트
+  const TRANSLATE_DOMAINS = new Set([
+    'ifanyonebuildsit.com',
+    'en.wikipedia.org',
+    'lesswrong.com',
+    'www.lesswrong.com',
+    'astralcodexten.com',
+    'www.astralcodexten.com',
+    'asteriskmag.com',
+    'reflectivealtruism.com',
+    'kdonohue.substack.com',
+    'ai-frontiers.org',
+    'templacity.com',
+    'forum.effectivealtruism.org',
+    'intelligence.org',
+    'hpmor.com'
+  ]);
+
+  function toGoogleTranslate(urlObj) {
+    var host = urlObj.hostname.replace(/\./g, '-') + '.translate.goog';
+    var params = new URLSearchParams(urlObj.search);
+    params.set('_x_tr_sl', 'en');
+    params.set('_x_tr_tl', 'ko');
+    params.set('_x_tr_hl', 'ko');
+    return 'https://' + host + urlObj.pathname + '?' + params.toString() + (urlObj.hash || '');
+  }
+
+  document.addEventListener('click', function(e) {
+    // 새 탭/창 단축키나 우클릭 등은 그대로 두기
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var u;
+    try { u = new URL(a.href); } catch (_) { return; }
+    if (!TRANSLATE_DOMAINS.has(u.hostname)) return;
+    e.preventDefault();
+    var translated = toGoogleTranslate(u);
+    window.open(translated, a.target || '_blank', 'noopener');
+  }, true);
+})();
+</script>
 </body>
 </html>
